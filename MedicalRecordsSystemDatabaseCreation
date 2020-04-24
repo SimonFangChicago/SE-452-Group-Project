@@ -1,0 +1,138 @@
+CREATE TABLE Pharmacy (
+
+    PharmacyID INTEGER PRIMARY KEY,
+    PharmacyName VARCHAR2(255),
+    PharmacyAddress VARCHAR2(255),
+    PharmacyPhoneNumber INTEGER
+    
+);
+
+CREATE TABLE Pharmacist (
+
+    PharmacistID INTEGER PRIMARY KEY,
+    PharmacistName VARCHAR2(255),
+    PharmacyName VARCHAR2(255)
+    
+);
+
+CREATE TABLE Doctor (
+ 
+    DoctorID INTEGER PRIMARY KEY,
+    DoctorName VARCHAR2(255),
+    DoctorSpecialty VARCHAR2(255),
+    DoctorsOfficeName VARCHAR2(255)
+    
+);
+    
+CREATE TABLE Patient (
+
+    PatientID INTEGER PRIMARY KEY,
+    PatientName VARCHAR2(255),
+    PatientGender VARCHAR2(255),
+    PatientDOB DATE,
+    PatientNumOfRecentVisits INTEGER,
+    PatientNotes CLOB,
+    PatientLabResults CLOB,
+    PatientPrescriptions CLOB,
+    PatientsDoctor VARCHAR2(255)
+    
+);
+
+CREATE TABLE Medications (
+
+    MedicationID INTEGER,
+    MedicationName VARCHAR2(255) PRIMARY KEY,
+    MedicationSideEffects VARCHAR2(255)
+
+);
+
+CREATE TABLE Prescription (
+
+    PrescriptionID INTEGER,
+    PrescriptionPatientName VARCHAR2(255) PRIMARY KEY,
+    PrescriptionMedication VARCHAR2(255)
+
+);
+
+CREATE TABLE DoctorsOffice (
+
+    DoctorsOfficeName VARCHAR2(255) PRIMARY KEY,
+    DoctorsOfficeAddress VARCHAR2(255),
+    DoctorsOfficePhoneNumber INTEGER,
+    DoctorsOfficeID INTEGER
+
+);
+
+CREATE TABLE Specialty (
+
+    SpecialtyName VARCHAR2(255) PRIMARY KEY,
+    YearsRequiredForTraining INTEGER,
+    SpecialtyID INTEGER
+
+);
+
+DROP TABLE Pharmacist;
+DROP TABLE Pharmacy;
+DROP TABLE Doctor;
+DROP TABLE Patient;
+DROP TABLE Medications;
+DROP TABLE Prescription;
+DROP TABLE DoctorsOffice;
+DROP TABLE Specialty;
+
+INSERT INTO Specialty VALUES ('Orthopaedics', 4, 1);
+INSERT INTO Specialty VALUES ('Neurology', 4, 2);
+INSERT INTO Specialty VALUES ('Family Medicine', 3, 3);
+
+INSERT INTO DoctorsOffice VALUES ('Good Shepard', '123 Northwest Ave', 1029384756, 1);
+INSERT INTO DoctorsOffice VALUES ('ENT and Allergy Center', '321 Dundee Ct', 0192837465, 2);
+INSERT INTO DoctorsOffice VALUES ('Bone and Joint Institute', '555 Palatine Rd', 1209348756, 3);
+
+INSERT INTO Prescription VALUES (1, 'Bill Woods', 'Clindamycin');
+INSERT INTO Prescription VALUES (2, 'Nathan Cantelberry', 'Azelastine');
+INSERT INTO Prescription VALUES (3, 'Stan Nalewski', 'Omeprazole');
+
+INSERT INTO Medications VALUES (1, 'Clindamycin', 'Headache');
+INSERT INTO Medications VALUES (2, 'Azelastine', 'Drowsiness');
+INSERT INTO Medications VALUES (3, 'Omeprazole', 'Nasuea');
+INSERT INTO Medications VALUES (4, 'Adderall', 'Dry mouth');
+INSERT INTO Medications VALUES (5, 'Acetaminophen', 'Insomnia');
+INSERT INTO Medications VALUES (6, 'Alprazolam', 'Diarrhea');
+
+INSERT INTO Patient VALUES (1, 'Bill Woods', 'Male', date '1984-12-31', 3,
+'Patient has made full recovery', 'Lab results are negative', 'Clindamycin', 'David Anderson');
+INSERT INTO Patient VALUES (2, 'Nathan Cantleberry', 'Male', date '1988-10-02', 1, 
+'Patient is in the process of recovery', 'Lab results are positive', 'Azelastine', 'Joe Jablonski');
+INSERT INTO Patient VALUES (3, 'Stan Nalewski', 'Male', date '1991-03-20', 5,
+'Patient has not made a recovery', 'Lab results are positive', 'Adderall', 'Jeff Osborn');
+INSERT INTO Patient VALUES (4, 'Carrie Hunter', 'Female', date '1978-01-17', 1,
+'No patient notes', 'No lab results to show', NULL, 'Greg Stupka');
+
+INSERT INTO Doctor VALUES (1, 'David Anderson', 'Orthopaedics', 'Good Shepard');
+INSERT INTO Doctor VALUES (2, 'Joe Jablonski', 'Family Medicine', 'ENT and Allergy Center');
+INSERT INTO Doctor VALUES (3, 'Jeff Osborn', 'Family Medicine', 'Good Shepard');
+INSERT INTO Doctor VALUES (4, 'Greg Stupka', 'Orthopaedics', 'Bone and Joint Institute');
+INSERT INTO Doctor VALUES (5, 'Heman Gala', 'Neurology', 'Good Shepard');
+
+INSERT INTO Pharmacy VALUES (1, 'OscoDrug', '123 Fake St', 1234567890);
+INSERT INTO Pharmacy VALUES (2, 'Walgreens', '123 Main St', 0987654321);
+
+INSERT INTO Pharmacist VALUES (1, 'Jane Doe', 'OscoDrug');
+INSERT INTO Pharmacist VALUES (2, 'Jon Smith', 'Walgreens');
+INSERT INTO Pharmacist VALUES (3, 'Mike Jones', 'Walgreens');
+INSERT INTO Pharmacist VALUES (4, 'David Green', 'OscoDrug');
+INSERT INTO Pharmacist VALUES (5, 'Adam Margolis', 'OscoDrug');
+INSERT INTO Pharmacist VALUES (6, 'Dan Bayer', 'Walgreens');
+INSERT INTO Pharmacist VALUES (7, 'Anna Rasmussen', 'Walgreens');
+
+
+
+
+
+
+
+
+
+
+
+
