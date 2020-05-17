@@ -15,8 +15,8 @@ public class HomeController {
     @Autowired
     private PatientRepository patientRepository;
     
-    @GetMapping("/")
-    public String home(){
+    @GetMapping("/get_patient_by_id")
+    public String getPatientByID(){
 
         String result = "";
         System.out.println("\n1.findAll()...");
@@ -26,6 +26,7 @@ public class HomeController {
         }
 
         return result;
+        //return result;
     }
     
 }
