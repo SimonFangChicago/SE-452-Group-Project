@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class DoctorController {
@@ -15,16 +16,19 @@ public class DoctorController {
     private DoctorRepository doctorRepository;
     
     @GetMapping("/get_doctor_by_id")
-    public String getDoctorByID(Model model){
+    public String getDoctorByID(@RequestParam Long id) {
 
         String result = "";
         System.out.println("\n1.findAll()...");
         for (Doctor doctor : doctorRepository.findAll()) {
-            System.out.println(doctor);
-            result = doctor.toString();
+            //System.out.println(patient);
+            if(doctor.getDCOTORID().equals(id))
+            {
+                result = doctor.toString();
+            }
         }
 
-        return result;
+        return result.length()>0?result:"doctor not found";
     }
     
 }
