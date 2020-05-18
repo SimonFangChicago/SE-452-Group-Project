@@ -15,7 +15,7 @@ public class DoctorController {
     @Autowired
     private DoctorRepository doctorRepository;
     
-    @GetMapping("/get_doctor_by_id")
+    @GetMapping("/get_doctor_by_id/{id}")
     public String getDoctorByID(@RequestParam Long id) {
 
         String result = "";

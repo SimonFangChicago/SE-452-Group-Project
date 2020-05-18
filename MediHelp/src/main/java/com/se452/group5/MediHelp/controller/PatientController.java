@@ -15,20 +15,20 @@ public class PatientController {
     @Autowired
     private PatientRepository patientRepository;
     
-    @GetMapping("/get_patient_by_id")
-    public String getPatientByID(@RequestParam Long id) {
+    @GetMapping("/get_patient_by_id/{id}")
+    public String getPatientByID(@RequestParam(required=false,name ="id") String id) {
 
         String result = "";
         System.out.println("\n1.findAll()...");
         for (Patient patient : patientRepository.findAll()) {
             //System.out.println(patient);
-            if(patient.getPATIENTID().equals(id))
+            if(patient.getPATIENTID().toString().equals(id))
             {
                 result = patient.toString();
             }
         }
 
-        return result.length()>0?result:"patient not found";
+        return result.length()>0?result:"PatientNotFound";
     }
 
     @GetMapping("/test")
