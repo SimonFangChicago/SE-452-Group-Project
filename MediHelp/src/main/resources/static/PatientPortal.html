@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="css/med-rec-system.css">
+  <link rel="stylesheet" href="css/patientportal.css">
 </head>
 
 <div class="tab">
@@ -18,7 +18,6 @@
     <span class="patient-doctor-span-block">
       <h2>Your Info</h2>
       <img src="MockImages/patient.jpg">
-
       <div class="info-line">
         <strong>First Name:</strong>
         <p>John</p>
@@ -69,23 +68,104 @@
   </div> <!-- pharmacyInfo -->
 </div> <!-- profile -->
 
+
+
+
 <div id="pastVisits" class="tabcontent">
   <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-  <h3>Past Visits</h3>
-  <p>This patient has had NUM past visits.</p> 
+  <h3 class="table-header">Past Visits</h3>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Reason for visit</th>
+  </tr>
+  <tr>
+    <td>December 10th, 2017</td>
+    <td>Illness</td>
+  </tr>
+  <tr>
+    <td>November 1st, 2015</td>
+    <td>Checkup</td>
+  </tr>
+  <tr>
+    <td>January 22nd, 2014</td>
+    <td>Illness</td>
+  </tr>
+  <tr>
+    <td>June24th, 2013</td>
+    <td>Checkup</td>
+  </tr>
+</table>
 </div>
+
+
+
+
+
+
+
 
 <div id="labResults" class="tabcontent">
   <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-  <h3>Lab Results</h3>
-  <p>This is the patients lab results.</p>
+  <h3 class="table-header">Lab Results</h3>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Results</th>
+  </tr>
+  <tr>
+    <td>December 10th, 2017</td>
+    <td>Negative</td>
+  </tr>
+  <tr>
+    <td>November 1st, 2015</td>
+    <td>Positive</td>
+  </tr>
+  <tr>
+    <td>January 22nd, 2014</td>
+    <td>Positive</td>
+  </tr>
+  <tr>
+    <td>June24th, 2013</td>
+    <td>Negative</td>
+  </tr>
+</table>
 </div>
+
+
+
+
+
+
+
+
 
 <div id="prescriptions" class="tabcontent">
   <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-  <h3>Prescriptions</h3>
-  <p>These are the patients prescriptions.</p>
+  <h3 class="table-header">Prescriptions</h3>
+  <table>
+  <tr>
+    <th>Perspection</th>
+    <th>PharmacyID</th>
+  </tr>
+  <tr>
+    <td>Tylenol</td>
+    <td>20598</td>
+  </tr>
+  <tr>
+    <td>Asprin</td>
+    <td>20598</td>
+  </tr>
+</table>
 </div>
+
+
+
+
+
+
+
+
 
 <script>
 function openTab(evt, tabName) {

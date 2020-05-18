@@ -13,6 +13,7 @@ img {
   object-fit: cover;
   width: 335px;
   height: 500px;
+  padding-bottom: 10px;
 }
 
 .tab {
@@ -54,6 +55,24 @@ img {
    outline: none;
 }
 
+/* Style the tables */
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+  margin: auto;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
 /* Style the tab content */
 .tabcontent {
   display: none;
@@ -83,8 +102,8 @@ img {
   text-align: left;
   padding-left: 0px;
   padding-right: 0px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   margin: 0;
 }
 
@@ -113,4 +132,8 @@ img {
 
     width: 50%;
   margin: auto;
+}
+
+.table-header {
+  text-align:center
 }
