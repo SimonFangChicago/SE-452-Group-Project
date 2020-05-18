@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class HomeController {
+public class PatientController {
 
     @Autowired
     private PatientRepository patientRepository;
@@ -25,7 +25,6 @@ public class HomeController {
         }
 
         return result;
-        //return result;
     }
 
     @GetMapping("/test")
