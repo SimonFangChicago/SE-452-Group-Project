@@ -5,6 +5,7 @@ import com.se452.group5.MediHelp.repository.DoctorRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -14,7 +15,7 @@ public class DoctorController {
     private DoctorRepository doctorRepository;
     
     @GetMapping("/get_doctor_by_id")
-    public String getDoctorByID(){
+    public String getDoctorByID(Model model){
 
         String result = "";
         System.out.println("\n1.findAll()...");
