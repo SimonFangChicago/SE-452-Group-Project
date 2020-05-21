@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/styling.css">
+</head>
+
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'profile')" id="defaultOpen"><strong>Profile</strong></button>
+  <button class="tablinks" onclick="openTab(event, 'pastVisits')"><strong>Past Visits</strong></button>
+  <button class="tablinks" onclick="openTab(event, 'labResults')"><strong>Lab Results</strong></button>
+  <button class="tablinks" onclick="openTab(event, 'prescriptions')"><strong>Prescriptions</strong></button>
+</div>
+
+
+<!--------------------------------------------- PROFILE PAGE --------------------------------------------->
+
+
+<div id="profile" class="tabcontent">
+  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+  <div id="patientAndDoctorInfo" style="display: flex; justify-content: space-between;">
+    <span class="patient-doctor-span-block">
+      <h2>Your Info</h2>
+      <img src="MockImages/patient.jpg">
+      <div class="info-line">
+        <strong>First Name:</strong>
+        <p>John</p>
+      </div> <!-- info-line -->
+      <div class="info-line">
+        <strong>Last Name:</strong>
+        <p>Doe</p>
+      </div> <!-- info-line -->
+      <div class="info-line">
+        <strong>Birth Date:</strong>
+        <p>04/28/1987</p>
+      </div> <!-- info-line -->
+      <div class="info-line">
+        <strong>Address:</strong>
+        <p>123 Royal Lane<br/>Arlington, NE<br/>50432</p>
+      </div> <!-- info-line -->
+    </span>
+
+    <span class="patient-doctor-span-block">
+      <h2>My Doctor</h2>
+      <img src="MockImages/doctor.png">
+
+      <div class="info-line">
+        <strong>Name:</strong>
+        <p>Steven Strange</p>
+      </div> <!-- info-line -->
+      <div class="info-line">
+        <strong>Specialty:</strong>
+        <p>Neuroscience</p>
+      </div> <!-- info-line -->
+    </span>
+  </div> <!-- patientAndDoctorInfo -->
+
+  <div id="pharmacyInfo">
+      <h2>My Pharmacy</h2>
+      <div class="info-line">
+        <strong>Name:</strong>
+        <p>Walgreens</p>
+      </div> <!-- info-line -->
+      <div class="info-line">
+        <strong>Address:</strong>
+        <p>4 Privet Drive, Little Whining, Surrey, UK</p>
+      </div> <!-- info-line -->
+      <div class="info-line">
+        <strong>Phone Number:</strong>
+        <p>773-202-5862</p>
+      </div> <!-- info-line -->
+  </div> <!-- pharmacyInfo -->
+</div> <!-- profile -->
+
+
+<!--------------------------------------------- PAST VISITS PAGE --------------------------------------------->
+
+
+<div id="pastVisits" class="tabcontent">
+  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+  <h3 class="table-header">Past Visits</h3>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Reason for visit</th>
+  </tr>
+  <tr>
+    <td>December 10th, 2017</td>
+    <td>Illness</td>
+  </tr>
+  <tr>
+    <td>November 1st, 2015</td>
+    <td>Checkup</td>
+  </tr>
+  <tr>
+    <td>January 22nd, 2014</td>
+    <td>Illness</td>
+  </tr>
+  <tr>
+    <td>June24th, 2013</td>
+    <td>Checkup</td>
+  </tr>
+</table>
+</div>
+
+
+<!--------------------------------------------- LABE RESULTS PAGE --------------------------------------------->
+
+
+<div id="labResults" class="tabcontent">
+  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+  <h3 class="table-header">Lab Results</h3>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Results</th>
+  </tr>
+  <tr>
+    <td>December 10th, 2017</td>
+    <td>Negative</td>
+  </tr>
+  <tr>
+    <td>November 1st, 2015</td>
+    <td>Positive</td>
+  </tr>
+  <tr>
+    <td>January 22nd, 2014</td>
+    <td>Positive</td>
+  </tr>
+  <tr>
+    <td>June24th, 2013</td>
+    <td>Negative</td>
+  </tr>
+</table>
+</div>
+
+
+<!--------------------------------------------- PRESCRIPTIONS PAGE --------------------------------------------->
+
+
+<div id="prescriptions" class="tabcontent">
+  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+  <h3 class="table-header">Prescriptions</h3>
+  <table>
+  <tr>
+    <th>Perspection</th>
+    <th>PharmacyID</th>
+  </tr>
+  <tr>
+    <td>Tylenol</td>
+    <td>20598</td>
+  </tr>
+  <tr>
+    <td>Asprin</td>
+    <td>20598</td>
+  </tr>
+</table>
+</div>
+
+
+
+
+
+
+
+
+
+<script>
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+
+</html>
