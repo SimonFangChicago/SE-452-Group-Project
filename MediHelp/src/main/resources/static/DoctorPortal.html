@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/styling.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'profile')" id="defaultOpen"><strong>Profile</strong></button>
+  <button class="tablinks" onclick="openTab(event, 'patients')"><strong>Patients</strong></button>
+  <button class="tablinks" onclick="openTab(event, 'prescriptions')"><strong>Prescriptions</strong></button>
+</div>
+
+
+<!--------------------------------------------- PROFILE PAGE --------------------------------------------->
+
+
+<div id="profile" class="tabcontent">
+  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+  <div id="patientAndDoctorInfo" style="display: flex; justify-content: space-between;">
+    <span class="patient-doctor-span-block">
+      <h2>Your Info</h2>
+      <img src="MockImages/doctor.png">
+      <div class="info-line"> 
+        <strong>First Name:</strong>
+        <p>John</p>
+      </div> <!-- info-line -->
+      <div class="info-line">
+        <strong>Last Name:</strong>
+        <p>Doe</p>
+      </div> <!-- info-line -->
+      <div class="info-line">
+        <strong>Birth Date:</strong>
+        <p>04/28/1987</p>
+      </div> <!-- info-line -->
+      <div class="info-line">
+        <strong>Specialty:</strong>
+        <p>Neurology</p>
+      </div> <!-- info-line -->
+    </span>
+  </div> <!-- pharmacyInfo -->
+</div> <!-- profile -->
+
+
+<!--------------------------------------------- PATIENTS PAGE --------------------------------------------->
+
+
+<div id="patients" class="tabcontent">
+  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+  <h3 class="table-header">Patients</h3>
+
+<form class="example" action="/action_page.php" style="margin:auto;max-width:300px; padding-bottom: 50px;">
+  <input type="text" placeholder="Search.." name="search2">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Birthdate</th>
+    <th>Age</th>
+    <th>Lab Results</th>
+    <th>Patient Notes</th>
+  </tr>
+  <tr>
+    <td>John Prosser</td>
+    <td>07/10/1993</td>
+    <td>26</td>
+    <td>Positive</td>
+    <td>Patient has no previous history with illness</td>
+  </tr>
+  <tr>
+    <td>Jeff Osborn</td>
+    <td>03/17/1970</td>
+    <td>40</td>
+    <td>Positive</td>
+    <td>Patient is sick but does not show symptoms</td>
+  </tr>
+  <tr>
+    <td>Joe Jablonski</td>
+    <td>05/13/1990</td>
+    <td>20</td>
+    <td>Negative</td>
+    <td>Patient is healthy but should see ENT specialist</td>
+  </tr>
+  <tr>
+    <td>Fred Johnson</td>
+    <td>10/3/1968</td>
+    <td>42</td>
+    <td>Negative</td>
+    <td>Patient is healthy</td>
+  </tr>
+</table>
+
+<h2>Enter New Patient</h2>
+
+<form action="/action_page.php">
+  <label for="newpatient">Enter New Patient:</label><br>
+  <input type="text" id="newpatient" name="newpatient"><br>
+  <label for="birthday">Birth Date</label><br>
+  <input type="text" id="birthdate" name="birthdate"><br><br>
+  <label for="patientnotes">Patient Notes</label><br>
+  <input type="text" id="patientnotes" name="patientnotes"><br><br>
+  <input type="submit" value="Add Patient">
+</form> 
+
+
+</div>
+
+
+<!--------------------------------------------- PRESCRIPTIONS PAGE --------------------------------------------->
+
+
+<div id="prescriptions" class="tabcontent">
+  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+  <h3 class="table-header">Prescriptions</h3>
+
+<form class="example2" action="/action_page.php" style="margin:auto;max-width:300px; padding-bottom: 50px;">
+  <input type="text" placeholder="Search.." name="search2">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Prescription</th>
+    <th>Pharmacy ID</th>
+    <th>Renew</th>
+  </tr>
+  <tr>
+    <td>John Prosser</td>
+    <td>Amox Clav</td>
+    <td>123</td>
+    <td>Renew</td>
+  </tr>
+  <tr>
+    <td>Jeff Osborn</td>
+    <td>Clindamycin</td>
+    <td>187</td>
+    <td>Renew</td>
+  </tr>
+  <tr>
+    <td>Joe Jablonski</td>
+    <td>Amoxacylin</td>
+    <td>645</td>
+    <td>Renew</td>
+  </tr>
+  <tr>
+    <td>Fred Johnson</td>
+    <td>Omeprozel</td>
+    <td>356</td>
+    <td>Renew</td>
+  </tr>
+</table>
+
+<h2>Prescribe Medication</h2>
+
+<form action="/action_page.php">
+  <label for="patientname">Patient Name:</label><br>
+  <input type="text" id="patientname" name="patientname"><br>
+  <label for="birthday">Birth Date</label><br>
+  <input type="text" id="birthdate" name="birthdate"><br><br>
+  <label for="prescription">Prescription</label><br>
+  <input type="text" id="prescription" name="prescription"><br><br>
+  <input type="submit" value="Perscribe">
+</form> 
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+<script>
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+
+</html>
