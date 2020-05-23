@@ -77,8 +77,11 @@ tr:nth-child(even) {
 .tabcontent {
   display: none;
   padding: 6px 12px;
-  border: 1px solid #ccc;
   border-top: none;
+}
+
+.active {
+  display: block;
 }
 
 /* Style the close button */
@@ -212,4 +215,3 @@ input[type=button], input[type=submit], input[type=reset] {
   margin: 4px 2px;
   cursor: pointer;
 }
-

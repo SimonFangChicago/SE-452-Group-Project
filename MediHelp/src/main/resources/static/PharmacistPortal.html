@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/styling.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'prescriptions')" id="defaultOpen"><strong>Prescriptions</strong></button>
+</div>
+
+
+<!--------------------------------------------- PRESCRIPTIONS PAGE --------------------------------------------->
+
+<div id="prescriptions" class="tabcontent active">
+  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+  <h3 class="table-header">Prescriptions</h3>
+
+<form class="example2" action="/action_page.php" style="margin:auto;max-width:300px; padding-bottom: 50px;">
+  <input type="text" placeholder="Search.." name="search2">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Birthdate</th>
+    <th>Age</th>
+    <th>Lab Results</th>
+    <th>Patient Notes</th>
+  </tr>
+  <tr>
+    <td>John Prosser</td>
+    <td>07/10/1993</td>
+    <td>26</td>
+    <td>Positive</td>
+    <td>Patient has no previous history with illness</td>
+  </tr>
+  <tr>
+    <td>Jeff Osborn</td>
+    <td>03/17/1970</td>
+    <td>40</td>
+    <td>Positive</td>
+    <td>Patient is sick but does not show symptoms</td>
+  </tr>
+  <tr>
+    <td>Joe Jablonski</td>
+    <td>05/13/1990</td>
+    <td>20</td>
+    <td>Negative</td>
+    <td>Patient is healthy but should see ENT specialist</td>
+  </tr>
+  <tr>
+    <td>Fred Johnson</td>
+    <td>10/3/1968</td>
+    <td>42</td>
+    <td>Negative</td>
+    <td>Patient is healthy</td>
+  </tr>
+</table>
+
+<h2>Add Patient Info</h2>
+
+<form action="/action_page.php">
+  <label for="patientname">Patient Name:</label><br>
+  <input type="text" id="patientname" name="patientname"><br>
+  <label for="patientnotes">Patient Notes</label><br>
+  <input type="text" id="patientnotes" name="patientnotes"><br><br>
+  <input type="submit" value="Add Patient">
+</form>
+
+
+</div>
+
+
+
+<a href="PharmacistLoginScreen.html" class="btn btn-info btn-lg">
+  <span class="glyphicon glyphicon-log-out"></span> Log out
+</a>
+
+
+
+
+
+<script>
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+
+</html>
