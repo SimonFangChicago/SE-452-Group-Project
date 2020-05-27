@@ -33,6 +33,17 @@ public class PatientController {
         return result.length()>0?result:"PatientNotFound";
     }
 
+    @GetMapping("/PatientLogin")
+    public String PatientLogin() {
+        return "PatientLoginScreen";
+    }
+
+    @GetMapping("/PatientPortal")
+    public String DoctorPortal() {
+
+        return "PatientPortal.html";
+    }
+
     @GetMapping("/test")
     public String hello(Model model){
 

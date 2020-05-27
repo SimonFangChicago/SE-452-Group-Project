@@ -30,5 +30,18 @@ public class DoctorController {
 
         return result.length()>0?result:"doctor not found";
     }
+
+    
+
+    @GetMapping("/DoctorLogin")
+    public String DoctorLogin() {
+        return "DoctorLoginScreen";
+    }
+
+    @GetMapping("/DoctorPortal")
+    public String DoctorPortal(@RequestParam String email, @RequestParam String password) {
+
+        return "DoctorPortal.html";
+    }
     
 }
