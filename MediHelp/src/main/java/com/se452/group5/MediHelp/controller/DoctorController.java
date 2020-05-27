@@ -39,8 +39,8 @@ public class DoctorController {
     }
 
     @GetMapping("/DoctorPortal")
-    public String DoctorPortal(@RequestParam String email, @RequestParam String password) {
-
+    public String DoctorPortal(@RequestParam String email, @RequestParam String password,Model model) {
+        model.addAttribute("email", email);
         return "DoctorPortal.html";
     }
     
