@@ -1,6 +1,6 @@
 package com.se452.group5.MediHelp.controller;
 
-import com.se452.group5.MediHelp.model.Patient;
+import com.se452.group5.MediHelp.entity.Patient;
 import com.se452.group5.MediHelp.repository.PatientRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;

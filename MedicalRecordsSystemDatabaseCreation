@@ -1,3 +1,14 @@
+
+DROP TABLE Pharmacist;
+DROP TABLE Pharmacy;
+DROP TABLE Doctor;
+DROP TABLE Patient;
+DROP TABLE Medications;
+DROP TABLE Prescription;
+DROP TABLE DoctorsOffice;
+DROP TABLE Specialty;
+
+
 CREATE TABLE Pharmacy (
 
     PharmacyID INTEGER PRIMARY KEY,
@@ -9,6 +20,7 @@ CREATE TABLE Pharmacy (
 
 CREATE TABLE Pharmacist (
 
+	User_ID INTEGER Unique,
     PharmacistID INTEGER PRIMARY KEY,
     PharmacistName VARCHAR2(255),
     PharmacyName VARCHAR2(255)
@@ -16,7 +28,8 @@ CREATE TABLE Pharmacist (
 );
 
 CREATE TABLE Doctor (
- 
+
+	User_ID INTEGER Unique,
     DoctorID INTEGER PRIMARY KEY,
     DoctorName VARCHAR2(255),
     DoctorSpecialty VARCHAR2(255),
@@ -26,6 +39,7 @@ CREATE TABLE Doctor (
     
 CREATE TABLE Patient (
 
+	User_ID INTEGER Unique,
     PatientID INTEGER PRIMARY KEY,
     PatientName VARCHAR2(255),
     PatientGender VARCHAR2(255),
@@ -71,14 +85,10 @@ CREATE TABLE Specialty (
 
 );
 
-DROP TABLE Pharmacist;
-DROP TABLE Pharmacy;
-DROP TABLE Doctor;
-DROP TABLE Patient;
-DROP TABLE Medications;
-DROP TABLE Prescription;
-DROP TABLE DoctorsOffice;
-DROP TABLE Specialty;
+
+
+
+
 
 INSERT INTO Specialty VALUES ('Orthopaedics', 4, 1);
 INSERT INTO Specialty VALUES ('Neurology', 4, 2);
@@ -99,32 +109,197 @@ INSERT INTO Medications VALUES (4, 'Adderall', 'Dry mouth');
 INSERT INTO Medications VALUES (5, 'Acetaminophen', 'Insomnia');
 INSERT INTO Medications VALUES (6, 'Alprazolam', 'Diarrhea');
 
-INSERT INTO Patient VALUES (1, 'Bill Woods', 'Male', date '1984-12-31', 3,
+Delete from Patient where patientid=1;
+
+INSERT INTO Patient VALUES (6,1, 'Bill Woods', 'Male', date '1984-12-31', 3,
 'Patient has made full recovery', 'Lab results are negative', 'Clindamycin', 'David Anderson');
-INSERT INTO Patient VALUES (2, 'Nathan Cantleberry', 'Male', date '1988-10-02', 1, 
+INSERT INTO Patient VALUES (7,2, 'Nathan Cantleberry', 'Male', date '1988-10-02', 1, 
 'Patient is in the process of recovery', 'Lab results are positive', 'Azelastine', 'Joe Jablonski');
-INSERT INTO Patient VALUES (3, 'Stan Nalewski', 'Male', date '1991-03-20', 5,
+INSERT INTO Patient VALUES (8,3, 'Stan Nalewski', 'Male', date '1991-03-20', 5,
 'Patient has not made a recovery', 'Lab results are positive', 'Adderall', 'Jeff Osborn');
-INSERT INTO Patient VALUES (4, 'Carrie Hunter', 'Female', date '1978-01-17', 1,
+INSERT INTO Patient VALUES (9,4, 'Carrie Hunter', 'Female', date '1978-01-17', 1,
 'No patient notes', 'No lab results to show', NULL, 'Greg Stupka');
 
-INSERT INTO Doctor VALUES (1, 'David Anderson', 'Orthopaedics', 'Good Shepard');
-INSERT INTO Doctor VALUES (2, 'Joe Jablonski', 'Family Medicine', 'ENT and Allergy Center');
-INSERT INTO Doctor VALUES (3, 'Jeff Osborn', 'Family Medicine', 'Good Shepard');
-INSERT INTO Doctor VALUES (4, 'Greg Stupka', 'Orthopaedics', 'Bone and Joint Institute');
-INSERT INTO Doctor VALUES (5, 'Heman Gala', 'Neurology', 'Good Shepard');
+INSERT INTO Doctor VALUES (1,1, 'David Anderson', 'Orthopaedics', 'Good Shepard');
+INSERT INTO Doctor VALUES (2,2, 'Joe Jablonski', 'Family Medicine', 'ENT and Allergy Center');
+INSERT INTO Doctor VALUES (3,3, 'Jeff Osborn', 'Family Medicine', 'Good Shepard');
+INSERT INTO Doctor VALUES (4,4, 'Greg Stupka', 'Orthopaedics', 'Bone and Joint Institute');
+INSERT INTO Doctor VALUES (5,5, 'Heman Gala', 'Neurology', 'Good Shepard');
 
 INSERT INTO Pharmacy VALUES (1, 'OscoDrug', '123 Fake St', 1234567890);
 INSERT INTO Pharmacy VALUES (2, 'Walgreens', '123 Main St', 0987654321);
 
-INSERT INTO Pharmacist VALUES (1, 'Jane Doe', 'OscoDrug');
-INSERT INTO Pharmacist VALUES (2, 'Jon Smith', 'Walgreens');
-INSERT INTO Pharmacist VALUES (3, 'Mike Jones', 'Walgreens');
-INSERT INTO Pharmacist VALUES (4, 'David Green', 'OscoDrug');
-INSERT INTO Pharmacist VALUES (5, 'Adam Margolis', 'OscoDrug');
-INSERT INTO Pharmacist VALUES (6, 'Dan Bayer', 'Walgreens');
-INSERT INTO Pharmacist VALUES (7, 'Anna Rasmussen', 'Walgreens');
+INSERT INTO Pharmacist VALUES (10,1, 'Jane Doe', 'OscoDrug');
+INSERT INTO Pharmacist VALUES (11,2, 'Jon Smith', 'Walgreens');
+INSERT INTO Pharmacist VALUES (12,3, 'Mike Jones', 'Walgreens');
+INSERT INTO Pharmacist VALUES (13,4, 'David Green', 'OscoDrug');
+INSERT INTO Pharmacist VALUES (14,5, 'Adam Margolis', 'OscoDrug');
+INSERT INTO Pharmacist VALUES (15,6, 'Dan Bayer', 'Walgreens');
+INSERT INTO Pharmacist VALUES (16,7, 'Anna Rasmussen', 'Walgreens');
 
+commit;
+
+drop table USER_ROLE;
+drop table APP_USER;
+drop table APP_ROLE;
+drop table Persistent_Logins;
+
+-- Create table
+create table APP_USER
+(
+  USER_ID           NUMBER(19) not null,
+  USER_NAME         VARCHAR2(36) not null,
+  ENCRYTED_PASSWORD VARCHAR2(128) not null,
+  ENABLED           NUMBER(1) not null 
+) ;
+--  
+alter table APP_USER
+  add constraint APP_USER_PK primary key (USER_ID);
+  
+alter table APP_USER
+  add constraint APP_USER_UK unique (USER_NAME);
+ 
+ 
+-- Create table
+create table APP_ROLE
+(
+  ROLE_ID   NUMBER(19) not null,
+  ROLE_NAME VARCHAR2(30) not null
+) ;
+--  
+alter table APP_ROLE
+  add constraint APP_ROLE_PK primary key (ROLE_ID);
+  
+alter table APP_ROLE
+  add constraint APP_ROLE_UK unique (ROLE_NAME);
+ 
+ 
+-- Create table
+create table USER_ROLE
+(
+  ID      NUMBER(19) not null,
+  USER_ID NUMBER(19) not null,
+  ROLE_ID NUMBER(19) not null
+);
+--  
+alter table USER_ROLE
+  add constraint USER_ROLE_PK primary key (ID);
+  
+alter table USER_ROLE
+  add constraint USER_ROLE_UK unique (USER_ID, ROLE_ID);
+  
+alter table USER_ROLE
+  add constraint USER_ROLE_FK1 foreign key (USER_ID)
+  references APP_USER (USER_ID);
+  
+alter table USER_ROLE
+  add constraint USER_ROLE_FK2 foreign key (ROLE_ID)
+  references APP_ROLE (ROLE_ID);
+ 
+-- Used by Spring Remember Me API.  
+CREATE TABLE Persistent_Logins (
+ 
+    username varchar2(64) not null,
+    series varchar2(64) not null,
+    token varchar2(64) not null,
+    last_used Date not null,
+    PRIMARY KEY (series)
+     
+);
+ 
+--------------------------------------
+ 
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED)
+values (1, 'David Anderson', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1);
+
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED)
+values (2, 'Joe Jablonski', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1);
+
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED)
+values (3, 'Jeff Osborn', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1);
+
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED)
+values (4, 'Greg Stupka', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1);
+
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED)
+values (5, 'Heman Gala', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1);
+ 
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED)
+values (6, 'Bill Woods', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1);
+
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED)
+values (7, 'Nathan Cantleberry', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1);
+
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED)
+values (8, 'Stan Nalewski', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1);
+
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED)
+values (9, 'Carrie Hunter', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1);
+
+---
+ 
+insert into app_role (ROLE_ID, ROLE_NAME)
+values (1, 'ROLE_ADMIN');
+ 
+insert into app_role (ROLE_ID, ROLE_NAME)
+values (2, 'ROLE_USER');
+ 
+---
+ 
+insert into user_role (ID, USER_ID, ROLE_ID)
+values (1, 1, 1);
+ 
+insert into user_role (ID, USER_ID, ROLE_ID)
+values (2, 1, 2);
+
+insert into user_role (ID, USER_ID, ROLE_ID)
+values (3, 2, 1);
+ 
+insert into user_role (ID, USER_ID, ROLE_ID)
+values (4, 2, 2);
+
+insert into user_role (ID, USER_ID, ROLE_ID)
+values (5, 3, 1);
+ 
+insert into user_role (ID, USER_ID, ROLE_ID)
+values (6, 3, 2);
+
+insert into user_role (ID, USER_ID, ROLE_ID)
+values (7, 4, 1);
+ 
+insert into user_role (ID, USER_ID, ROLE_ID)
+values (8, 4, 2);
+
+insert into user_role (ID, USER_ID, ROLE_ID)
+values (9, 5, 1);
+ 
+insert into user_role (ID, USER_ID, ROLE_ID)
+values (10, 5, 2);
+ 
+insert into user_role (ID, USER_ID, ROLE_ID)
+values (11, 6, 2);
+
+insert into user_role (ID, USER_ID, ROLE_ID)
+values (12, 7, 2);
+
+insert into user_role (ID, USER_ID, ROLE_ID)
+values (13, 8, 2);
+
+insert into user_role (ID, USER_ID, ROLE_ID)
+values (14, 9, 2);
+---
+
+commit;
+
+drop sequence app_user_id_sequence;
+
+create sequence app_user_id_sequence
+increment by 1
+start with 16
+nomaxvalue
+nocache;
+
+commit;
 
 
 

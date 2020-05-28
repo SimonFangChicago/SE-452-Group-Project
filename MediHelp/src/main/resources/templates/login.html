@@ -11,7 +11,7 @@
 		<div class="center" style="width:500px;height:500px;border:1px solid #000;">
 			<h3 class="table-header">Sign In</h3>
 
-			<form action="login" style="text-align: center">
+			<form name='f' th:action="@{/j_spring_security_check}" method='POST' style="text-align: center">
   			<label for="username">username:</label><br>
   			<input type="text" id="username" name="username"><br>
   			<label for="password">password:</label><br>

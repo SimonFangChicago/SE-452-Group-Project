@@ -1,4 +1,4 @@
-package com.se452.group5.MediHelp.model;
+package com.se452.group5.MediHelp.entity;
 
 import java.io.Serializable;
 import javax.persistence.Column;
