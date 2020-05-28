@@ -62,7 +62,7 @@ public class MainController {
  
         if(userInfo.contains("ROLE_ADMIN"))
         {
-            return "admin";
+            return "adminPage";
         }
 
         if(userInfo.contains("ROLE_DOCTOR"))
