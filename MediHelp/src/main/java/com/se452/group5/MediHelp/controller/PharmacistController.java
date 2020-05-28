@@ -19,8 +19,8 @@ public class PharmacistController {
     }
 
     @GetMapping("/PharmacistPortal")
-    public String DoctorPortal() {
-
+    public String DoctorPortal(@RequestParam String email, @RequestParam String password,Model model) {
+        model.addAttribute("email", email);
         return "PharmacistPortal.html";
     }
     
