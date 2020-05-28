@@ -54,7 +54,7 @@
       </div> <!-- info-line -->
     </span>
 
-    <span class="patient-doctor-span-block">
+    <span th:if="${!userInfo.contains('ROLE_DOCTOR')}" class="patient-doctor-span-block">
       <h2>My Doctor</h2>
       <img src="MockImages/doctor.png">
 

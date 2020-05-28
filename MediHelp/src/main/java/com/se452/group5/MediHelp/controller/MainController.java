@@ -54,9 +54,27 @@ public class MainController {
  
         User loginedUser = (User) ((Authentication) principal).getPrincipal();
  
+
+
+
         String userInfo = WebUtils.toString(loginedUser);
         model.addAttribute("userInfo", userInfo);
  
+        if(userInfo.contains("ROLE_ADMIN"))
+        {
+            return "admin";
+        }
+
+        if(userInfo.contains("ROLE_DOCTOR"))
+        {
+            return "DoctorPortal";
+        }
+
+        if(userInfo.contains("ROLE_PHARMACHIST"))
+        {
+            return "PHARMACISTPortal";
+        }
+
         return "userInfoPage";
     }
  

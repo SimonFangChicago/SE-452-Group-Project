@@ -13,7 +13,13 @@
   <button class="tablinks" onclick="openTab(event, 'prescriptions')"><strong>Prescriptions</strong></button>
 </div>
 
-<p th:text="'Hello, ' + ${email} + '!'" />
+<h2>User Info Page</h2>
+<h3>Welcome : <span th:utext="${#request.userPrincipal.name}"></span></h3>
+<b>This is protected page!</b>  
+ 
+<br/><br/>
+ 
+<div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
 
 <!--------------------------------------------- PROFILE PAGE --------------------------------------------->
 
