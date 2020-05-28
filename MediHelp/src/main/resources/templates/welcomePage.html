@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
    <head>
       <title th:utext="${title}"></title>
+      <link rel="stylesheet" href="css/styling.css">
    </head>
     
    <body>
@@ -11,5 +12,26 @@
        
       <h2>Message : <span th:utext="${message}"></span></h2>
        
+
+      <h1 style="text-align: center" >Medical Records System <br></h1>
+	<div> <h6 style="text-align: center">Pharmacist</h6></div>
+		<div class="center" style="width:500px;height:500px;border:1px solid #000;">
+			<h3 class="table-header">Sign In</h3>
+
+			<form name='f' th:action="@{/j_spring_security_check}" method='POST' style="text-align: center">
+  			<label for="username">username:</label><br>
+  			<input type="text" id="username" name="username"><br>
+  			<label for="password">password:</label><br>
+  			<input type="text" id="password" name="password"><br><br>
+  			<input class="button" type="submit" value="login">
+			</form>
+
+			<h5 class="h-center" style="padding-top: 100px;">Already have an account?</h5>
+
+			<input type="button" onclick="location.href='PatientLogin';" value="Sign in as patient"/>
+			<input type="button" onclick="location.href='DoctorLogin';" value="Sign in as doctor"/>
+
+			</div>
+
    </body>
 </html>
