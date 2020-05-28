@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
+ <!-- Include _menu.html -->
+ <th:block th:include="/_menu"></th:block>
+
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'profile')" id="defaultOpen"><strong>Profile</strong></button>
   <button class="tablinks" onclick="openTab(event, 'pastVisits')"><strong>Past Visits</strong></button>
@@ -14,9 +17,6 @@
   <button class="tablinks" onclick="openTab(event, 'prescriptions')"><strong>Prescriptions</strong></button>
 </div>
 
-
- <!-- Include _menu.html -->
- <th:block th:include="/_menu"></th:block>
        
        
  <h2>User Info Page</h2>
