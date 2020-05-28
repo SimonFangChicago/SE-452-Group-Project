@@ -29,6 +29,9 @@ public class AppUser {
  
     @Column(name = "Enabled", length = 1, nullable = false)
     private boolean enabled;
+
+    @Column(name = "REGISTER_TYPE", length = 1, nullable = false)
+    public int registerType;
  
     public Long getUserId() {
         return userId;
@@ -60,6 +63,14 @@ public class AppUser {
  
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public int getRegisterType() {
+        return registerType;
+    }
+ 
+    public void setRegisterType(int rt) {
+        this.registerType = rt;
     }
  
 }

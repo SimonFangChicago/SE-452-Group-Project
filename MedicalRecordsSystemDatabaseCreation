@@ -150,7 +150,8 @@ create table APP_USER
   USER_ID           NUMBER(19) not null,
   USER_NAME         VARCHAR2(36) not null,
   ENCRYTED_PASSWORD VARCHAR2(128) not null,
-  ENABLED           NUMBER(1) not null 
+  ENABLED           NUMBER(1) not null,
+  REGISTER_TYPE		NUMBER(2) not null
 ) ;
 --  
 alter table APP_USER
@@ -208,33 +209,61 @@ CREATE TABLE Persistent_Logins (
 );
  
 --------------------------------------
+
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
+values (0, 'admin', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,1);
+
  
-insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED)
-values (1, 'David Anderson', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1);
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
+values (1, 'David Anderson', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,2);
 
-insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED)
-values (2, 'Joe Jablonski', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1);
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
+values (2, 'Joe Jablonski', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,2);
 
-insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED)
-values (3, 'Jeff Osborn', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1);
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
+values (3, 'Jeff Osborn', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,2);
 
-insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED)
-values (4, 'Greg Stupka', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1);
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
+values (4, 'Greg Stupka', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,2);
 
-insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED)
-values (5, 'Heman Gala', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1);
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
+values (5, 'Heman Gala', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,2);
  
-insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED)
-values (6, 'Bill Woods', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1);
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
+values (6, 'Bill Woods', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,3);
 
-insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED)
-values (7, 'Nathan Cantleberry', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1);
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
+values (7, 'Nathan Cantleberry', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,3);
 
-insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED)
-values (8, 'Stan Nalewski', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1);
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
+values (8, 'Stan Nalewski', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,3);
 
-insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED)
-values (9, 'Carrie Hunter', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1);
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
+values (9, 'Carrie Hunter', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,3);
+
+
+
+
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
+values (10, 'Jane Doe', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,4);
+
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
+values (11, 'Jon Smith', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,4);
+
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
+values (12, 'Mike Jones', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,4);
+
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
+values (13, 'David Green', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,4);
+
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
+values (14, 'Adam Margolis', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,4);
+
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
+values (15, 'Dan Bayer', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,4);
+
+insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
+values (16, 'Anna Rasmussen', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,4);
 
 ---
  
@@ -242,51 +271,65 @@ insert into app_role (ROLE_ID, ROLE_NAME)
 values (1, 'ROLE_ADMIN');
  
 insert into app_role (ROLE_ID, ROLE_NAME)
-values (2, 'ROLE_USER');
+values (2, 'ROLE_DOCTOR');
+
+insert into app_role (ROLE_ID, ROLE_NAME)
+values (3, 'ROLE_PATIENT');
+
+insert into app_role (ROLE_ID, ROLE_NAME)
+values (4, 'ROLE_PHARMACIST');
  
 ---
- 
 insert into user_role (ID, USER_ID, ROLE_ID)
-values (1, 1, 1);
- 
+values (1, 0, 1);
+
 insert into user_role (ID, USER_ID, ROLE_ID)
 values (2, 1, 2);
 
 insert into user_role (ID, USER_ID, ROLE_ID)
-values (3, 2, 1);
+values (3, 2, 2);
+
+insert into user_role (ID, USER_ID, ROLE_ID)
+values (4, 3, 2);
+
+insert into user_role (ID, USER_ID, ROLE_ID)
+values (5, 4, 2);
  
 insert into user_role (ID, USER_ID, ROLE_ID)
-values (4, 2, 2);
+values (6, 5, 2);
 
 insert into user_role (ID, USER_ID, ROLE_ID)
-values (5, 3, 1);
- 
-insert into user_role (ID, USER_ID, ROLE_ID)
-values (6, 3, 2);
+values (7, 6, 3);
 
 insert into user_role (ID, USER_ID, ROLE_ID)
-values (7, 4, 1);
- 
-insert into user_role (ID, USER_ID, ROLE_ID)
-values (8, 4, 2);
+values (8, 7, 3);
 
 insert into user_role (ID, USER_ID, ROLE_ID)
-values (9, 5, 1);
- 
-insert into user_role (ID, USER_ID, ROLE_ID)
-values (10, 5, 2);
- 
-insert into user_role (ID, USER_ID, ROLE_ID)
-values (11, 6, 2);
+values (9, 8, 3);
 
 insert into user_role (ID, USER_ID, ROLE_ID)
-values (12, 7, 2);
+values (10, 9, 3);
 
 insert into user_role (ID, USER_ID, ROLE_ID)
-values (13, 8, 2);
+values (11, 10, 4);
 
 insert into user_role (ID, USER_ID, ROLE_ID)
-values (14, 9, 2);
+values (12, 11, 4);
+
+insert into user_role (ID, USER_ID, ROLE_ID)
+values (13, 12, 4);
+
+insert into user_role (ID, USER_ID, ROLE_ID)
+values (14, 13, 4);
+
+insert into user_role (ID, USER_ID, ROLE_ID)
+values (15, 14, 4);
+
+insert into user_role (ID, USER_ID, ROLE_ID)
+values (16, 15, 4);
+
+insert into user_role (ID, USER_ID, ROLE_ID)
+values (17, 16, 4);
 ---
 
 commit;
@@ -295,11 +338,23 @@ drop sequence app_user_id_sequence;
 
 create sequence app_user_id_sequence
 increment by 1
-start with 16
+start with 100
 nomaxvalue
 nocache;
 
 commit;
+
+
+drop sequence user_role_id_sequence;
+
+create sequence user_role_id_sequence
+increment by 1
+start with 100
+nomaxvalue
+nocache;
+
+commit;
+
 
 
 
