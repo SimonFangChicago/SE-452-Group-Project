@@ -7,6 +7,7 @@ DROP TABLE Medications;
 DROP TABLE Prescription;
 DROP TABLE DoctorsOffice;
 DROP TABLE Specialty;
+DROP TABLE VisitRecord;
 
 
 CREATE TABLE Pharmacy (
@@ -85,7 +86,15 @@ CREATE TABLE Specialty (
 
 );
 
+CREATE TABLE VisitRecord(
 
+	PatientID INTEGER,
+	DoctorID INTEGER,
+	VisitDate DATE,
+	Reason VARCHAR2(255),
+	Result VARCHAR2(255)
+
+);
 
 
 
@@ -136,6 +145,9 @@ INSERT INTO Pharmacist VALUES (13,4, 'David Green', 'OscoDrug');
 INSERT INTO Pharmacist VALUES (14,5, 'Adam Margolis', 'OscoDrug');
 INSERT INTO Pharmacist VALUES (15,6, 'Dan Bayer', 'Walgreens');
 INSERT INTO Pharmacist VALUES (16,7, 'Anna Rasmussen', 'Walgreens');
+
+
+INSERT INTO VisitRecord VALUES (1,1, date '1984-12-31', 'Headache','Not a big deal!');
 
 commit;
 
