@@ -223,59 +223,59 @@ CREATE TABLE Persistent_Logins (
 --------------------------------------
 
 insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
-values (0, 'admin', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,1);
+values (0, 'admin', '$2a$10$rw0JzDVvThnkkPPBJwLOh.8MBW4Tfr1QrDSGI2c8enlCoHvZOECU.', 1,1);
 
  
 insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
-values (1, 'David Anderson', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,2);
+values (1, 'David Anderson', '$2a$10$rw0JzDVvThnkkPPBJwLOh.8MBW4Tfr1QrDSGI2c8enlCoHvZOECU.', 1,2);
 
 insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
-values (2, 'Joe Jablonski', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,2);
+values (2, 'Joe Jablonski', '$2a$10$rw0JzDVvThnkkPPBJwLOh.8MBW4Tfr1QrDSGI2c8enlCoHvZOECU.', 1,2);
 
 insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
-values (3, 'Jeff Osborn', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,2);
+values (3, 'Jeff Osborn', '$2a$10$rw0JzDVvThnkkPPBJwLOh.8MBW4Tfr1QrDSGI2c8enlCoHvZOECU.', 1,2);
 
 insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
-values (4, 'Greg Stupka', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,2);
+values (4, 'Greg Stupka', '$2a$10$rw0JzDVvThnkkPPBJwLOh.8MBW4Tfr1QrDSGI2c8enlCoHvZOECU.', 1,2);
 
 insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
-values (5, 'Heman Gala', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,2);
+values (5, 'Heman Gala', '$2a$10$rw0JzDVvThnkkPPBJwLOh.8MBW4Tfr1QrDSGI2c8enlCoHvZOECU.', 1,2);
  
 insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
-values (6, 'Bill Woods', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,3);
+values (6, 'Bill Woods', '$2a$10$rw0JzDVvThnkkPPBJwLOh.8MBW4Tfr1QrDSGI2c8enlCoHvZOECU.', 1,3);
 
 insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
-values (7, 'Nathan Cantleberry', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,3);
+values (7, 'Nathan Cantleberry', '$2a$10$rw0JzDVvThnkkPPBJwLOh.8MBW4Tfr1QrDSGI2c8enlCoHvZOECU.', 1,3);
 
 insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
-values (8, 'Stan Nalewski', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,3);
+values (8, 'Stan Nalewski', '$2a$10$rw0JzDVvThnkkPPBJwLOh.8MBW4Tfr1QrDSGI2c8enlCoHvZOECU.', 1,3);
 
 insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
-values (9, 'Carrie Hunter', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,3);
+values (9, 'Carrie Hunter', '$2a$10$rw0JzDVvThnkkPPBJwLOh.8MBW4Tfr1QrDSGI2c8enlCoHvZOECU.', 1,3);
 
 
 
 
 insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
-values (10, 'Jane Doe', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,4);
+values (10, 'Jane Doe', '$2a$10$rw0JzDVvThnkkPPBJwLOh.8MBW4Tfr1QrDSGI2c8enlCoHvZOECU.', 1,4);
 
 insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
-values (11, 'Jon Smith', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,4);
+values (11, 'Jon Smith', '$2a$10$rw0JzDVvThnkkPPBJwLOh.8MBW4Tfr1QrDSGI2c8enlCoHvZOECU.', 1,4);
 
 insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
-values (12, 'Mike Jones', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,4);
+values (12, 'Mike Jones', '$2a$10$rw0JzDVvThnkkPPBJwLOh.8MBW4Tfr1QrDSGI2c8enlCoHvZOECU.', 1,4);
 
 insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
-values (13, 'David Green', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,4);
+values (13, 'David Green', '$2a$10$rw0JzDVvThnkkPPBJwLOh.8MBW4Tfr1QrDSGI2c8enlCoHvZOECU.', 1,4);
 
 insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
-values (14, 'Adam Margolis', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,4);
+values (14, 'Adam Margolis', '$2a$10$rw0JzDVvThnkkPPBJwLOh.8MBW4Tfr1QrDSGI2c8enlCoHvZOECU.', 1,4);
 
 insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
-values (15, 'Dan Bayer', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,4);
+values (15, 'Dan Bayer', '$2a$10$rw0JzDVvThnkkPPBJwLOh.8MBW4Tfr1QrDSGI2c8enlCoHvZOECU.', 1,4);
 
 insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED,REGISTER_TYPE)
-values (16, 'Anna Rasmussen', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1,4);
+values (16, 'Anna Rasmussen', '$2a$10$rw0JzDVvThnkkPPBJwLOh.8MBW4Tfr1QrDSGI2c8enlCoHvZOECU.', 1,4);
 
 ---
  
