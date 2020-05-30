@@ -22,7 +22,7 @@ public class DoctorController {
         System.out.println("\n1.findAll()...");
         for (Doctor doctor : doctorRepository.findAll()) {
             //System.out.println(patient);
-            if(doctor.getDCOTORID().equals(id))
+            if(doctor.getDOCTORID().equals(id))
             {
                 result = doctor.toString();
             }

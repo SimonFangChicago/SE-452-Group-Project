@@ -21,10 +21,14 @@ public class Patient implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long PATIENTID;
 
+    private Long User_ID; 
+
     @Column(name = "PATIENTNAME")
     private String PATIENTNAME;
 
     private String PATIENTGENDER;
 
     private String PATIENTDOB;
+
+    private String PATIENTSDOCTOR;
 }

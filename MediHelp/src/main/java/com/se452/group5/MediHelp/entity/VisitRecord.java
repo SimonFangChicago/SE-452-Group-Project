@@ -1,29 +1,33 @@
 package com.se452.group5.MediHelp.entity;
 
-import java.io.Serializable;
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import lombok.Data;
+
 import lombok.ToString;
 
-@Data
+
 @Entity
-@Table(name = "Doctor")
+@Table(name = "VISITRECORD")
 @ToString
-public class Doctor implements Serializable {
-    private static final long serialVersionUID = 1L;
-        
+public class VisitRecord {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long DOCTORID;
+    private int ID;
 
-    private String DOCTORNAME;
+    public int PatientID;
 
-    private String DOCTORSPECIALTY;
+    public int DoctorID;
 
-    private String DOCTORSOFFICENAME;
+    public String VD;
+    
+    public String Reason;
+    
+	public String Result;
 }

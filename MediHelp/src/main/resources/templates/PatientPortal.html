@@ -2,19 +2,13 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <title>User Info</title>
   <link rel="stylesheet" href="css/styling.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
-
-<h2>User Info Page</h2>
-<h3>Welcome : <span th:utext="${#request.userPrincipal.name}"></span></h3>
-<b>This is protected page!</b>  
- 
-<br/><br/>
- 
-<div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
-
+ <!-- Include _menu.html -->
+ <th:block th:include="/_menu"></th:block>
 
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'profile')" id="defaultOpen"><strong>Profile</strong></button>
@@ -23,6 +17,15 @@
   <button class="tablinks" onclick="openTab(event, 'prescriptions')"><strong>Prescriptions</strong></button>
 </div>
 
+       
+       
+ <h2>User Info Page</h2>
+ <h3>Welcome : <span th:utext="${#request.userPrincipal.name}"></span></h3>
+ <b>This is protected page!</b>  
+  
+ <br/><br/>
+  
+ <div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
 
 <!--------------------------------------------- PROFILE PAGE --------------------------------------------->
 
@@ -34,34 +37,26 @@
       <h2>Your Info</h2>
       <img src="MockImages/patient.jpg">
       <div class="info-line">
-        <strong>First Name:</strong>
-        <p>John</p>
-      </div> <!-- info-line -->
-      <div class="info-line">
-        <strong>Last Name:</strong>
-        <p>Doe</p>
+        <strong>Name:</strong>
+        <p><span th:utext="${#request.userPrincipal.name}"></span></p>
       </div> <!-- info-line -->
       <div class="info-line">
         <strong>Birth Date:</strong>
-        <p>04/28/1987</p>
-      </div> <!-- info-line -->
-      <div class="info-line">
-        <strong>Address:</strong>
-        <p>123 Royal Lane<br/>Arlington, NE<br/>50432</p>
+        <p><span th:utext="${PatientInfo.getPATIENTDOB()}"></span></p>
       </div> <!-- info-line -->
     </span>
 
-    <span class="patient-doctor-span-block">
+    <span th:if="${!userInfo.contains('ROLE_DOCTOR')}" class="patient-doctor-span-block">
       <h2>My Doctor</h2>
       <img src="MockImages/doctor.png">
 
       <div class="info-line">
         <strong>Name:</strong>
-        <p>Steven Strange</p>
+        <p><span th:utext="${PatientDoctor.getDOCTORNAME()}"></span></p>
       </div> <!-- info-line -->
       <div class="info-line">
         <strong>Specialty:</strong>
-        <p>Neuroscience</p>
+        <p><span th:utext="${PatientDoctor.getDOCTORSPECIALTY()}"></span></p>
       </div> <!-- info-line -->
     </span>
   </div> <!-- patientAndDoctorInfo -->
@@ -95,22 +90,10 @@
     <th>Date</th>
     <th>Reason for visit</th>
   </tr>
-  <tr>
-    <td>December 10th, 2017</td>
-    <td>Illness</td>
-  </tr>
-  <tr>
-    <td>November 1st, 2015</td>
-    <td>Checkup</td>
-  </tr>
-  <tr>
-    <td>January 22nd, 2014</td>
-    <td>Illness</td>
-  </tr>
-  <tr>
-    <td>June24th, 2013</td>
-    <td>Checkup</td>
-  </tr>
+  <tr th:each="record : ${VisitRecord}">
+        <td><span th:text="${record.VD}"> Date </span></td>
+        <td><span th:text="${record.Reason}"> Reason </span></td>
+	</tr>
 </table>
 </div>
 

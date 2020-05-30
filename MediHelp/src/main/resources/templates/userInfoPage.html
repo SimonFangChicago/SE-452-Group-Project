@@ -98,22 +98,10 @@
     <th>Date</th>
     <th>Reason for visit</th>
   </tr>
-  <tr>
-    <td>December 10th, 2017</td>
-    <td>Illness</td>
-  </tr>
-  <tr>
-    <td>November 1st, 2015</td>
-    <td>Checkup</td>
-  </tr>
-  <tr>
-    <td>January 22nd, 2014</td>
-    <td>Illness</td>
-  </tr>
-  <tr>
-    <td>June24th, 2013</td>
-    <td>Checkup</td>
-  </tr>
+  <tr th:each="record : ${VisitRecord}">
+        <td><span th:text="${record.VD}"> Date </span></td>
+        <td><span th:text="${record.Reason}"> Reason </span></td>
+	</tr>
 </table>
 </div>
 

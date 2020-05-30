@@ -1,9 +1,21 @@
 package com.se452.group5.MediHelp.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import com.se452.group5.MediHelp.utils.WebUtils;
+import com.se452.group5.MediHelp.entity.Doctor;
+import com.se452.group5.MediHelp.entity.Patient;
+import com.se452.group5.MediHelp.entity.VisitRecord;
+import com.se452.group5.MediHelp.repository.AppUserRepository;
+import com.se452.group5.MediHelp.repository.DoctorRepository;
+import com.se452.group5.MediHelp.repository.PatientRepository;
+import com.se452.group5.MediHelp.repository.UserRoleRepository;
+import com.se452.group5.MediHelp.repository.VisitRecordRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
@@ -13,6 +25,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
  
 @Controller
 public class MainController {
+
+    @Autowired
+    private VisitRecordRepository visitRecordRep;
+
+    @Autowired
+    private PatientRepository patientRep;
+
+    @Autowired
+    private AppUserRepository appUserRep;
+
+    @Autowired
+    private DoctorRepository doctorRep;
  
     @RequestMapping(value = { "/", "/welcome" }, method = RequestMethod.GET)
     public String welcomePage(Model model) {
@@ -53,9 +77,6 @@ public class MainController {
         System.out.println("User Name: " + userName);
  
         User loginedUser = (User) ((Authentication) principal).getPrincipal();
- 
-
-
 
         String userInfo = WebUtils.toString(loginedUser);
         model.addAttribute("userInfo", userInfo);
@@ -75,7 +96,48 @@ public class MainController {
             return "PHARMACISTPortal";
         }
 
-        return "userInfoPage";
+        if(userInfo.contains("ROLE_PATIENT"))
+        {
+            Iterable<VisitRecord> visitRecordsIterable = visitRecordRep.findAll();
+
+            List<VisitRecord> recordList = new ArrayList<VisitRecord>();
+            Iterator<VisitRecord> iterator = visitRecordsIterable.iterator();
+            while (iterator.hasNext()) {
+                recordList.add(iterator.next());
+            }
+
+            model.addAttribute("VisitRecord", recordList);
+
+            int userId = appUserRep.findByUserName(userName).getUserId().intValue();
+            Iterator<Patient> patientIterator = patientRep.findAll().iterator();
+            Patient curP = null;
+            while (patientIterator.hasNext()) {
+                curP = patientIterator.next();
+                if(curP.getUser_ID().intValue() == userId)
+                {
+                    model.addAttribute("PatientInfo", curP);
+                }
+            }
+
+            if(curP!=null)
+            {
+                Doctor curD = null;
+                Iterator<Doctor> doctorIterator = doctorRep.findAll().iterator();
+                while (doctorIterator.hasNext()) {
+                    curD = doctorIterator.next();
+                    String pDname = curP.getPATIENTSDOCTOR();
+                    String dName = curD.getDOCTORNAME();
+                    if(pDname.equals(dName))
+                    {
+                        model.addAttribute("PatientDoctor", curD);
+                    }
+                }
+            }
+
+            return "PatientPortal";
+        }
+
+        return "403Page";
     }
  
     @RequestMapping(value = "/403", method = RequestMethod.GET)
