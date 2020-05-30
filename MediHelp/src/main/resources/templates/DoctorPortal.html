@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/styling.css">
@@ -164,14 +165,17 @@
 
 <h2>Prescribe Medication</h2>
 
-<form action="/action_page.php">
+<form autocomplete="off" action="#" th:action="@{/prescribe}"
+      th:object="${prescription}" method="post" class="m-t" role="form"
+        data-toggle="validator">
   <label for="patientname">Patient Name:</label><br>
-  <input type="text" id="patientname" name="patientname"><br>
+  <input type="text" th:field="*{patientname}" placeholder="Patient Name" class="form-control" required><br>
   <label for="birthday">Birth Date</label><br>
-  <input type="text" id="birthdate" name="birthdate"><br><br>
+  <input type="text" th:field="*{birthdate}" placeholder="Birthdate" class="form-control" required><br><br>
   <label for="prescription">Prescription</label><br>
-  <input type="text" id="prescription" name="prescription"><br><br>
-  <input type="submit" value="Perscribe">
+  <input type="text" th:field="*{prescription}" placeholder="Prescription" class="form-control" required><br><br>
+  <button type="submit"
+          class="btn btn-primary block full-width m-b">Prescribe</button>
 </form> 
 
 
