@@ -24,7 +24,7 @@ public class PatientController {
         for (Patient patient : patientRepository.findAll()) {
             System.out.println(patient);
             System.out.println(id);
-            if(patient.getPATIENTID().toString().equals(id))
+            if(Integer.toString(patient.getPATIENTID()).equals(id))
             {
                 result = patient.toString();
             }

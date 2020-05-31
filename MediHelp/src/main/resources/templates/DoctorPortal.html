@@ -104,14 +104,17 @@
 
 <h2>Enter New Patient</h2>
 
-<form action="/action_page.php">
+<form autocomplete="off" action="#" th:action="@{/addPatient}"
+      th:object="${patient}" method="post" class="m-t" role="form"
+        data-toggle="validator">
   <label for="newpatient">Enter New Patient:</label><br>
-  <input type="text" id="newpatient" name="newpatient"><br>
+  <input type="text" th:field="*{patientName}" placeholder="Patient Name" class="form-control" required><br>
   <label for="birthday">Birth Date</label><br>
-  <input type="text" id="birthdate" name="birthdate"><br><br>
+  <input type="text" th:field="*{birthdate}" placeholder="Birthdate" class="form-control" required><br><br>
   <label for="patientnotes">Patient Notes</label><br>
-  <input type="text" id="patientnotes" name="patientnotes"><br><br>
-  <input type="submit" value="Add Patient">
+  <input type="text" th:field="*{notes}" placeholder="notes" class="form-control" required><br><br>
+  <button type="submit"
+          class="btn btn-primary block full-width m-b">Add Patient</button>
 </form> 
 
 
@@ -169,7 +172,7 @@
       th:object="${prescription}" method="post" class="m-t" role="form"
         data-toggle="validator">
   <label for="patientname">Patient Name:</label><br>
-  <input type="text" th:field="*{patientname}" placeholder="Patient Name" class="form-control" required><br>
+  <input type="text" th:field="*{patientName}" placeholder="Patient Name" class="form-control" required><br>
   <label for="birthday">Birth Date</label><br>
   <input type="text" th:field="*{birthdate}" placeholder="Birthdate" class="form-control" required><br><br>
   <label for="prescription">Prescription</label><br>

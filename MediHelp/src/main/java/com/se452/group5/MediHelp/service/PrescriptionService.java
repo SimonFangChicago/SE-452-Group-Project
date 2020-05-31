@@ -1,8 +1,6 @@
 package com.se452.group5.MediHelp.service;
 
-import com.se452.group5.MediHelp.entity.AppUser;
 import com.se452.group5.MediHelp.entity.Prescription;
-import com.se452.group5.MediHelp.repository.AppUserRepository;
 import com.se452.group5.MediHelp.repository.PrescriptionRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;

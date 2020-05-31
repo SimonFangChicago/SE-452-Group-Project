@@ -73,12 +73,15 @@
 
 <h2>Add Patient Info</h2>
 
-<form action="/action_page.php">
+<form autocomplete="off" action="#" th:action="@{/addPatientNotes}"
+      th:object="${patientNotes}" method="put" class="m-t" role="form"
+        data-toggle="validator">
   <label for="patientname">Patient Name:</label><br>
-  <input type="text" id="patientname" name="patientname"><br>
+  <input type="text" th:field="*{patientName}" placeholder="Patient Name" class="form-control" required><br>
   <label for="patientnotes">Patient Notes</label><br>
-  <input type="text" id="patientnotes" name="patientnotes"><br><br>
-  <input type="submit" value="Add Patient">
+  <input type="text" th:field="*{notes}" placeholder="notes" class="form-control" required><br><br>
+  <button type="submit"
+          class="btn btn-primary block full-width m-b">Add Patient</button>
 </form>
 
 

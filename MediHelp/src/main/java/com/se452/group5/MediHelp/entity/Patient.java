@@ -19,7 +19,7 @@ public class Patient implements Serializable {
         
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long PATIENTID;
+    private int PATIENTID;
 
     private Long User_ID; 
 

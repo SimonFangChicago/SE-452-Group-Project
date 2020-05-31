@@ -1,8 +1,10 @@
 package com.se452.group5.MediHelp.controller;
 
 import com.se452.group5.MediHelp.entity.Doctor;
+import com.se452.group5.MediHelp.entity.Patient;
 import com.se452.group5.MediHelp.entity.Prescription;
 import com.se452.group5.MediHelp.repository.DoctorRepository;
+import com.se452.group5.MediHelp.service.PatientService;
 import com.se452.group5.MediHelp.service.PrescriptionService;
 
 import javax.validation.Valid;
@@ -21,9 +23,11 @@ public class DoctorController {
     @Autowired
     private DoctorRepository doctorRepository;
     private PrescriptionService prescriptionService;
+    private PatientService patientService;
     
-    public DoctorController(PrescriptionService prescriptionService){
+    public DoctorController(PrescriptionService prescriptionService, PatientService patientService){
     	this.prescriptionService = prescriptionService;
+    	this.patientService = patientService;
     	
     }
     
@@ -59,6 +63,11 @@ public class DoctorController {
     @RequestMapping(value = "/prescribe", method = RequestMethod.POST)
     public void Prescribe(@Valid Prescription prescription) {
     	prescriptionService.savePrescription(prescription);
+    }
+    
+    @RequestMapping(value ="/addPatient", method = RequestMethod.POST)
+    public void addPatient(@Valid Patient patient) {
+    	patientService.savePatient(patient);
     }
     
 }
