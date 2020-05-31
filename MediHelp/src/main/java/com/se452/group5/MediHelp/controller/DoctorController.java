@@ -5,6 +5,8 @@ import com.se452.group5.MediHelp.entity.Prescription;
 import com.se452.group5.MediHelp.repository.DoctorRepository;
 import com.se452.group5.MediHelp.service.PrescriptionService;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -54,8 +56,8 @@ public class DoctorController {
         return "DoctorPortal.html";
     }
     
-    @RequestMapping(value = "/DoctorPortal", method = RequestMethod.POST)
-    public void Prescribe(Prescription prescription) {
+    @RequestMapping(value = "/prescribe", method = RequestMethod.POST)
+    public void Prescribe(@Valid Prescription prescription) {
     	prescriptionService.savePrescription(prescription);
     }
     
