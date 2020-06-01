@@ -156,7 +156,7 @@ public class MainController {
                 }
             }
 
-            if(curP!=null)
+            if(curP!=null && curP.getDOCTORNAME()!=null)
             {
                 Doctor curD = null;
                 Iterator<Doctor> doctorIterator = doctorRep.findAll().iterator();
