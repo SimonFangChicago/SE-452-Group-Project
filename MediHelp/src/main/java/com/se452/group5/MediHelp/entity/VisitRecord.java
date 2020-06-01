@@ -26,6 +26,10 @@ public class VisitRecord {
     public int DoctorID;
 
     public String VD;
+
+    public String PATIENTNAME;
+
+    public String DOCTORNAME;
     
     public String Reason;
     

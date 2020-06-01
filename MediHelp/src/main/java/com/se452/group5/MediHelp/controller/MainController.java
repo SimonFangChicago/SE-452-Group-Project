@@ -140,7 +140,11 @@ public class MainController {
             List<VisitRecord> recordList = new ArrayList<VisitRecord>();
             Iterator<VisitRecord> iterator = visitRecordsIterable.iterator();
             while (iterator.hasNext()) {
-                recordList.add(iterator.next());
+                VisitRecord vr = iterator.next();
+                if(vr.PATIENTNAME.equals(userName))
+                {
+                    recordList.add(vr);
+                }
             }
 
             model.addAttribute("VisitRecord", recordList);

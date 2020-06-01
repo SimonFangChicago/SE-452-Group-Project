@@ -94,8 +94,9 @@ CREATE TABLE VisitRecord(
 	DoctorID INTEGER,
 	VD VARCHAR2(255),
 	Reason VARCHAR2(255),
-	Result VARCHAR2(255)
-
+	Result VARCHAR2(255),
+	PatientName VARCHAR2(255),
+	DoctorName VARCHAR2(255)
 );
 
 
@@ -149,8 +150,8 @@ INSERT INTO Pharmacist VALUES (15,6, 'Dan Bayer', 'Walgreens');
 INSERT INTO Pharmacist VALUES (16,7, 'Anna Rasmussen', 'Walgreens');
 
 
-INSERT INTO VisitRecord VALUES (1,1,1, '2020-03-02', 'Headache','Not a big deal!');
-INSERT INTO VisitRecord VALUES (2,1,1, '2020-05-18', 'Headache Again','Not a big deal!');
+INSERT INTO VisitRecord VALUES (1,1,1, '2020-03-02', 'Headache','Not a big deal!','Bill Woods','Greg Stupka');
+INSERT INTO VisitRecord VALUES (2,1,1, '2020-05-18', 'Headache Again','Not a big deal!','Bill Woods','Greg Stupka');
 
 commit;
 
