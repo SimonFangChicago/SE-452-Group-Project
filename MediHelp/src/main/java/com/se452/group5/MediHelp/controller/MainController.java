@@ -169,6 +169,20 @@ public class MainController {
                         model.addAttribute("PatientDoctor", curD);
                     }
                 }
+
+                Iterator<Prescription> prescriptionIterator = prescriptionRep.findAll().iterator();
+                List<Prescription> prescriptions = new ArrayList<Prescription>();
+                Prescription curPrescription = null;
+                while (prescriptionIterator.hasNext()) {
+                    curPrescription = prescriptionIterator.next();
+                    if(curPrescription.getPATIENTNAME().equals(curP.getPATIENTNAME()))
+                    {
+                        prescriptions.add(curPrescription);
+                    
+                    }
+                }
+
+                model.addAttribute("prescriptions", prescriptions);
             }
 
             return "PatientPortal";

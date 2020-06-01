@@ -82,15 +82,11 @@
   <tr>
     <th>Name</th>
     <th>Birthdate</th>
-    <th>Age</th>
-    <th>Lab Results</th>
     <th>Patient Notes</th>
   </tr>
   <tr th:each="patient : ${Patients}">
     <td><span th:text="${patient.getPATIENTNAME()}"> Name </span></td>
-    <td><span th:text="${patient.getPATIENTNOTES()}"> Notes </span></td>
-    <td><span th:text="${patient.getPATIENTNOTES()}"> Notes </span></td>
-    <td><span th:text="${patient.getPATIENTNOTES()}"> Notes </span></td>
+    <td><span th:text="${patient.getPATIENTDOB()}"> Notes </span></td>
     <td><span th:text="${patient.getPATIENTNOTES()}"> Notes </span></td>
  </tr>
 </table>
@@ -145,7 +141,7 @@
 
 <form method="post" modelAttribute="prescription" action="AddPrescription">
 
-  <label id="PATIENTNAME" name="PATIENTNAME" path="PATIENTNAME">Name</label><br>
+  <label id="PATIENTNAME" name="PATIENTNAME" path="PATIENTNAME">Patient Name</label><br>
   <input id="PATIENTNAME" name="PATIENTNAME" path="PATIENTNAME"/><br>
   
   <label id="MEDICATION" name="MEDICATION" path="MEDICATION">Medication</label><br>

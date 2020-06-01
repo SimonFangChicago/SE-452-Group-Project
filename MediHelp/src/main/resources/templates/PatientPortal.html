@@ -136,19 +136,17 @@
   <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
   <h3 class="table-header">Prescriptions</h3>
   <table>
-  <tr>
-    <th>Perspection</th>
-    <th>PharmacyID</th>
-  </tr>
-  <tr>
-    <td>Tylenol</td>
-    <td>20598</td>
-  </tr>
-  <tr>
-    <td>Asprin</td>
-    <td>20598</td>
-  </tr>
-</table>
+    <tr>
+      <th>PatientName</th>
+      <th>DoctorName</th>
+      <th>Medication</th>
+    </tr>
+    <tr th:each="prescription: ${prescriptions}">
+      <td><span th:text="${prescription.getPATIENTNAME()}"> PatientName </span></td>
+      <td><span th:text="${prescription.getDOCTORNAME()}"> PatientName </span></td>
+      <td><span th:text="${prescription.getMEDICATION()}"> Medication </span></td>
+   </tr>
+  </table>
 </div>
 
 

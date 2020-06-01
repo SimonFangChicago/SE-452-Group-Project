@@ -44,7 +44,7 @@ CREATE TABLE Patient (
     PatientID INTEGER PRIMARY KEY,
     PatientName VARCHAR2(255),
     PatientGender VARCHAR2(255),
-    PatientDOB DATE,
+    PatientDOB VARCHAR2(255),
     PatientNumOfRecentVisits INTEGER,
     PatientNotes CLOB,
     PatientLabResults CLOB,
@@ -122,13 +122,13 @@ INSERT INTO Medications VALUES (6, 'Alprazolam', 'Diarrhea');
 
 Delete from Patient where patientid=1;
 
-INSERT INTO Patient VALUES (6,1, 'Bill Woods', 'Male', date '1984-12-31', 3,
+INSERT INTO Patient VALUES (6,1, 'Bill Woods', 'Male', '1984-12-31', 3,
 'Patient has made full recovery', 'Lab results are negative', 'Clindamycin', 'David Anderson');
-INSERT INTO Patient VALUES (7,2, 'Nathan Cantleberry', 'Male', date '1988-10-02', 1, 
+INSERT INTO Patient VALUES (7,2, 'Nathan Cantleberry', 'Male', '1988-10-02', 1, 
 'Patient is in the process of recovery', 'Lab results are positive', 'Azelastine', 'Joe Jablonski');
-INSERT INTO Patient VALUES (8,3, 'Stan Nalewski', 'Male', date '1991-03-20', 5,
+INSERT INTO Patient VALUES (8,3, 'Stan Nalewski', 'Male', '1991-03-20', 5,
 'Patient has not made a recovery', 'Lab results are positive', 'Adderall', 'Jeff Osborn');
-INSERT INTO Patient VALUES (9,4, 'Carrie Hunter', 'Female', date '1978-01-17', 1,
+INSERT INTO Patient VALUES (9,4, 'Carrie Hunter', 'Female', '1978-01-17', 1,
 'No patient notes', 'No lab results to show', NULL, 'Greg Stupka');
 
 INSERT INTO Doctor VALUES (1,1, 'David Anderson', 'Orthopaedics', 'Good Shepard');
@@ -149,8 +149,8 @@ INSERT INTO Pharmacist VALUES (15,6, 'Dan Bayer', 'Walgreens');
 INSERT INTO Pharmacist VALUES (16,7, 'Anna Rasmussen', 'Walgreens');
 
 
-INSERT INTO VisitRecord VALUES (1,1,1, date '2020-03-02', 'Headache','Not a big deal!');
-INSERT INTO VisitRecord VALUES (2,1,1, date '2020-05-18', 'Headache Again','Not a big deal!');
+INSERT INTO VisitRecord VALUES (1,1,1, '2020-03-02', 'Headache','Not a big deal!');
+INSERT INTO VisitRecord VALUES (2,1,1, '2020-05-18', 'Headache Again','Not a big deal!');
 
 commit;
 
