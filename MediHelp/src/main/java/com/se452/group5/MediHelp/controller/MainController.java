@@ -150,7 +150,7 @@ public class MainController {
             Patient curP = null;
             while (patientIterator.hasNext()) {
                 curP = patientIterator.next();
-                if(curP.getUser_ID().intValue() == userId)
+                if(curP.getUser_ID()!=null && curP.getUser_ID().intValue() == userId)
                 {
                     model.addAttribute("PatientInfo", curP);
                 }
