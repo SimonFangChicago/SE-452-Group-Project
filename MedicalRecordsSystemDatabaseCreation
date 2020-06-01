@@ -64,8 +64,9 @@ CREATE TABLE Medications (
 CREATE TABLE Prescription (
 
     PrescriptionID INTEGER,
-    PrescriptionPatientName VARCHAR2(255) PRIMARY KEY,
-    PrescriptionMedication VARCHAR2(255)
+    PatientName VARCHAR2(255),
+	DoctorName VARCHAR2(255),
+    Medication VARCHAR2(255)
 
 );
 
@@ -108,9 +109,9 @@ INSERT INTO DoctorsOffice VALUES ('Good Shepard', '123 Northwest Ave', 102938475
 INSERT INTO DoctorsOffice VALUES ('ENT and Allergy Center', '321 Dundee Ct', 0192837465, 2);
 INSERT INTO DoctorsOffice VALUES ('Bone and Joint Institute', '555 Palatine Rd', 1209348756, 3);
 
-INSERT INTO Prescription VALUES (1, 'Bill Woods', 'Clindamycin');
-INSERT INTO Prescription VALUES (2, 'Nathan Cantelberry', 'Azelastine');
-INSERT INTO Prescription VALUES (3, 'Stan Nalewski', 'Omeprazole');
+INSERT INTO Prescription VALUES (1, 'Carrie Hunter', 'Greg Stupka', 'Azelastine');
+--INSERT INTO Prescription VALUES (2, 'Nathan Cantelberry', 'Azelastine');
+--INSERT INTO Prescription VALUES (3, 'Stan Nalewski', 'Omeprazole');
 
 INSERT INTO Medications VALUES (1, 'Clindamycin', 'Headache');
 INSERT INTO Medications VALUES (2, 'Azelastine', 'Drowsiness');
@@ -372,6 +373,16 @@ commit;
 drop sequence paitent_id_sequence;
 
 create sequence paitent_id_sequence
+increment by 1
+start with 100
+nomaxvalue
+nocache;
+
+commit;
+
+drop sequence prescription_id_sequence;
+
+create sequence prescription_id_sequence
 increment by 1
 start with 100
 nomaxvalue

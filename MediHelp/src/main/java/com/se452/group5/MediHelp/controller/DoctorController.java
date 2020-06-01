@@ -1,12 +1,16 @@
 package com.se452.group5.MediHelp.controller;
 
+import java.security.Principal;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import com.se452.group5.MediHelp.entity.Doctor;
 import com.se452.group5.MediHelp.entity.Patient;
+import com.se452.group5.MediHelp.entity.Prescription;
 import com.se452.group5.MediHelp.repository.DoctorRepository;
 import com.se452.group5.MediHelp.repository.PatientRepository;
+import com.se452.group5.MediHelp.repository.PrescriptionRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
@@ -30,6 +34,9 @@ public class DoctorController {
 
     @Autowired
     private PatientRepository patientRepository;
+
+    @Autowired
+    private PrescriptionRepository prescriptionRepository;
 
     @GetMapping("/get_doctor_by_id/{id}")
     public String getDoctorByID(@RequestParam Long id) {
@@ -66,6 +73,23 @@ public class DoctorController {
 
                 modelAndView.addObject("patientName", patient.getPATIENTNAME());
                 modelAndView.setViewName("AddPatientSuccessfully");
+
+                return modelAndView;
+
+    }
+
+    @RequestMapping(value = "/AddPrescription", method = RequestMethod.POST)
+    public ModelAndView processAddPrescription(ModelAndView modelAndView,Prescription prescription,
+            BindingResult bindingResult, HttpServletRequest request,Principal principal) {
+
+
+                String doctorName = principal.getName();
+
+                prescription.setDOCTORNAME(doctorName);
+                prescriptionRepository.save(prescription);
+
+                modelAndView.addObject("patientName", prescription.getPATIENTNAME());
+                modelAndView.setViewName("AddPrescriptionSuccessfully");
 
                 return modelAndView;
 

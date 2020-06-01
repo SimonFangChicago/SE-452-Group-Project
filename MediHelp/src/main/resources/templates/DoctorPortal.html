@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
+ <!-- Include _menu.html -->
+ <th:block th:include="/_menu"></th:block>
+
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'profile')" id="defaultOpen"><strong>Profile</strong></button>
   <button class="tablinks" onclick="openTab(event, 'patients')"><strong>Patients</strong></button>
@@ -129,47 +132,26 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Prescription</th>
-    <th>Pharmacy ID</th>
-    <th>Renew</th>
+    <th>PatientName</th>
+    <th>Medication</th>
   </tr>
-  <tr>
-    <td>John Prosser</td>
-    <td>Amox Clav</td>
-    <td>123</td>
-    <td>Renew</td>
-  </tr>
-  <tr>
-    <td>Jeff Osborn</td>
-    <td>Clindamycin</td>
-    <td>187</td>
-    <td>Renew</td>
-  </tr>
-  <tr>
-    <td>Joe Jablonski</td>
-    <td>Amoxacylin</td>
-    <td>645</td>
-    <td>Renew</td>
-  </tr>
-  <tr>
-    <td>Fred Johnson</td>
-    <td>Omeprozel</td>
-    <td>356</td>
-    <td>Renew</td>
-  </tr>
+  <tr th:each="prescription: ${prescriptions}">
+    <td><span th:text="${prescription.getPATIENTNAME()}"> PatientName </span></td>
+    <td><span th:text="${prescription.getMEDICATION()}"> Medication </span></td>
+ </tr>
 </table>
 
 <h2>Prescribe Medication</h2>
 
-<form action="/action_page.php">
-  <label for="patientname">Patient Name:</label><br>
-  <input type="text" id="patientname" name="patientname"><br>
-  <label for="birthday">Birth Date</label><br>
-  <input type="text" id="birthdate" name="birthdate"><br><br>
-  <label for="prescription">Prescription</label><br>
-  <input type="text" id="prescription" name="prescription"><br><br>
-  <input type="submit" value="Perscribe">
+<form method="post" modelAttribute="prescription" action="AddPrescription">
+
+  <label id="PATIENTNAME" name="PATIENTNAME" path="PATIENTNAME">Name</label><br>
+  <input id="PATIENTNAME" name="PATIENTNAME" path="PATIENTNAME"/><br>
+  
+  <label id="MEDICATION" name="MEDICATION" path="MEDICATION">Medication</label><br>
+  <input id="MEDICATION" name="MEDICATION" path="MEDICATION"/><br>
+
+  <input type="submit" value="AddPrescription">
 </form> 
 
 

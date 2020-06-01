@@ -8,10 +8,12 @@ import java.util.List;
 import com.se452.group5.MediHelp.utils.WebUtils;
 import com.se452.group5.MediHelp.entity.Doctor;
 import com.se452.group5.MediHelp.entity.Patient;
+import com.se452.group5.MediHelp.entity.Prescription;
 import com.se452.group5.MediHelp.entity.VisitRecord;
 import com.se452.group5.MediHelp.repository.AppUserRepository;
 import com.se452.group5.MediHelp.repository.DoctorRepository;
 import com.se452.group5.MediHelp.repository.PatientRepository;
+import com.se452.group5.MediHelp.repository.PrescriptionRepository;
 import com.se452.group5.MediHelp.repository.UserRoleRepository;
 import com.se452.group5.MediHelp.repository.VisitRecordRepository;
 
@@ -37,6 +39,9 @@ public class MainController {
 
     @Autowired
     private DoctorRepository doctorRep;
+
+    @Autowired
+    private PrescriptionRepository prescriptionRep;
  
     @RequestMapping(value = { "/", "/welcome" }, method = RequestMethod.GET)
     public String welcomePage(Model model) {
@@ -103,6 +108,22 @@ public class MainController {
             }
 
             model.addAttribute("Patients", patients);
+
+            ////////////////////////////////////////////////////////////
+
+            Iterator<Prescription> prescriptionIterator = prescriptionRep.findAll().iterator();
+            List<Prescription> prescriptions = new ArrayList<Prescription>();
+            Prescription curPrescription = null;
+            while (prescriptionIterator.hasNext()) {
+                curPrescription = prescriptionIterator.next();
+                if(curPrescription.getDOCTORNAME().equals(principal.getName()))
+                {
+                    prescriptions.add(curPrescription);
+                   
+                }
+            }
+
+            model.addAttribute("prescriptions", prescriptions);
 
             return "DoctorPortal";
         }
