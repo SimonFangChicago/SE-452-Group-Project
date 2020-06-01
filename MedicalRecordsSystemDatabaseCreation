@@ -389,6 +389,16 @@ nocache;
 
 commit;
 
+drop sequence doctor_id_sequence;
+
+create sequence doctor_id_sequence
+increment by 1
+start with 100
+nomaxvalue
+nocache;
+
+commit;
+
 
 
 

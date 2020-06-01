@@ -9,9 +9,11 @@ import javax.validation.Valid;
 
 import com.se452.group5.MediHelp.entity.AppRole;
 import com.se452.group5.MediHelp.entity.AppUser;
+import com.se452.group5.MediHelp.entity.Doctor;
 import com.se452.group5.MediHelp.entity.Patient;
 import com.se452.group5.MediHelp.entity.UserRole;
 import com.se452.group5.MediHelp.repository.AppRoleRepository;
+import com.se452.group5.MediHelp.repository.DoctorRepository;
 import com.se452.group5.MediHelp.repository.PatientRepository;
 import com.se452.group5.MediHelp.service.UserRoleService;
 import com.se452.group5.MediHelp.service.UserService;
@@ -37,6 +39,9 @@ public class RegisterController {
 
     @Autowired
     private PatientRepository patientRep;
+
+    @Autowired
+    private DoctorRepository doctorRep;
 
     @Autowired
     public RegisterController(BCryptPasswordEncoder bCryptPasswordEncoder, UserService userService,
@@ -95,6 +100,12 @@ public class RegisterController {
                 role.setRoleId(Long.valueOf(user.registerType));
                 newUR.setAppRole(role);
                 userRoleService.saveUserRole(newUR);
+
+                Doctor newDoctor = new Doctor();
+                newDoctor.setDOCTORNAME(user.getUserName());
+                newDoctor.setDOCTORSOFFICENAME("NotAssigned");
+                newDoctor.setDOCTORSPECIALTY("NotAssigned");
+                doctorRep.save(newDoctor);
             }
 
             if(user.registerType == 3)

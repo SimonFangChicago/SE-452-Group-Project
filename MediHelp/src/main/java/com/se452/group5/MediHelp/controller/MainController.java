@@ -124,6 +124,20 @@ public class MainController {
             }
 
             model.addAttribute("prescriptions", prescriptions);
+            //
+
+
+            Doctor curD = null;
+            Iterator<Doctor> doctorIterator = doctorRep.findAll().iterator();
+            while (doctorIterator.hasNext()) {
+                curD = doctorIterator.next();
+                String username = principal.getName();
+                String dName = curD.getDOCTORNAME();
+                if(username.equals(dName))
+                {
+                    model.addAttribute("doctorInfo", curD);
+                }
+            }
 
             return "DoctorPortal";
         }

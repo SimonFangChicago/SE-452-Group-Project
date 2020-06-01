@@ -47,19 +47,11 @@
       <img src="MockImages/doctor.png">
       <div class="info-line"> 
         <strong>First Name:</strong>
-        <p>John</p>
-      </div> <!-- info-line -->
-      <div class="info-line">
-        <strong>Last Name:</strong>
-        <p>Doe</p>
-      </div> <!-- info-line -->
-      <div class="info-line">
-        <strong>Birth Date:</strong>
-        <p>04/28/1987</p>
+        <h3><span th:utext="${doctorInfo.getDOCTORNAME()}"></span></h3>
       </div> <!-- info-line -->
       <div class="info-line">
         <strong>Specialty:</strong>
-        <p>Neurology</p>
+        <h3><span th:utext="${doctorInfo.getDOCTORSPECIALTY()}"></span></h3>
       </div> <!-- info-line -->
     </span>
   </div> <!-- pharmacyInfo -->
