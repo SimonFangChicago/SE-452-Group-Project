@@ -9,8 +9,10 @@ import javax.validation.Valid;
 
 import com.se452.group5.MediHelp.entity.AppRole;
 import com.se452.group5.MediHelp.entity.AppUser;
+import com.se452.group5.MediHelp.entity.Patient;
 import com.se452.group5.MediHelp.entity.UserRole;
 import com.se452.group5.MediHelp.repository.AppRoleRepository;
+import com.se452.group5.MediHelp.repository.PatientRepository;
 import com.se452.group5.MediHelp.service.UserRoleService;
 import com.se452.group5.MediHelp.service.UserService;
 
@@ -32,6 +34,9 @@ public class RegisterController {
 
     @Autowired
     private org.springframework.jdbc.core.JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    private PatientRepository patientRep;
 
     @Autowired
     public RegisterController(BCryptPasswordEncoder bCryptPasswordEncoder, UserService userService,
@@ -99,6 +104,13 @@ public class RegisterController {
                 AppRole role = new AppRole();
                 role.setRoleId(Long.valueOf(user.registerType));
                 newUR.setAppRole(role);
+
+                Patient newP = new Patient();
+                newP.setPATIENTNAME(user.getUserName());
+                newP.setPATIENTDOB("2000-1-1");
+                newP.setDOCTORNAME("David Anderson");
+                patientRep.save(newP);
+
                 userRoleService.saveUserRole(newUR);
             }
 

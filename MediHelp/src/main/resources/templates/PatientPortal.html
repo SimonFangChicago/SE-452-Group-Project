@@ -52,11 +52,11 @@
 
       <div class="info-line">
         <strong>Name:</strong>
-        <p><span th:utext="${PatientDoctor.getDOCTORNAME()}"></span></p>
+        <p><span th:if="${PatientDoctor}" th:utext="${PatientDoctor.getDOCTORNAME()}"></span></p>
       </div> <!-- info-line -->
       <div class="info-line">
         <strong>Specialty:</strong>
-        <p><span th:utext="${PatientDoctor.getDOCTORSPECIALTY()}"></span></p>
+        <p><span th:if="${PatientDoctor}" th:utext="${PatientDoctor.getDOCTORSPECIALTY()}"></span></p>
       </div> <!-- info-line -->
     </span>
   </div> <!-- patientAndDoctorInfo -->
