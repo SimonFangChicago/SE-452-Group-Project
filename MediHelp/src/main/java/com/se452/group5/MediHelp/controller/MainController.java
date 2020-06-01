@@ -157,6 +157,7 @@ public class MainController {
                 if(curP.getPATIENTNAME()!=null && curP.getPATIENTNAME().equals(userName))
                 {
                     model.addAttribute("PatientInfo", curP);
+                    break;
                 }
                 else
                 {
