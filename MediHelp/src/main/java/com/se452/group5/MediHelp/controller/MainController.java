@@ -128,7 +128,7 @@ public class MainController {
             return "DoctorPortal";
         }
 
-        if(userInfo.contains("ROLE_PHARMACHIST"))
+        if(userInfo.contains("ROLE_PHARMACIST"))
         {
             return "PHARMACISTPortal";
         }
