@@ -49,7 +49,7 @@ CREATE TABLE Patient (
     PatientNotes CLOB,
     PatientLabResults CLOB,
     PatientPrescriptions CLOB,
-    PatientsDoctor VARCHAR2(255)
+    DoctorName VARCHAR2(255)
     
 );
 
@@ -362,6 +362,16 @@ commit;
 drop sequence user_role_id_sequence;
 
 create sequence user_role_id_sequence
+increment by 1
+start with 100
+nomaxvalue
+nocache;
+
+commit;
+
+drop sequence paitent_id_sequence;
+
+create sequence paitent_id_sequence
 increment by 1
 start with 100
 nomaxvalue

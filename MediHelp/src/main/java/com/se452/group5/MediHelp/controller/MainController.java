@@ -88,6 +88,22 @@ public class MainController {
 
         if(userInfo.contains("ROLE_DOCTOR"))
         {
+            model.addAttribute("doctorName", principal.getName());
+
+            Iterator<Patient> patientIterator = patientRep.findAll().iterator();
+            List<Patient> patients = new ArrayList<Patient>();
+            Patient curP = null;
+            while (patientIterator.hasNext()) {
+                curP = patientIterator.next();
+                if(curP.getDOCTORNAME().equals(principal.getName()))
+                {
+                    patients.add(curP);
+                   
+                }
+            }
+
+            model.addAttribute("Patients", patients);
+
             return "DoctorPortal";
         }
 
@@ -125,7 +141,7 @@ public class MainController {
                 Iterator<Doctor> doctorIterator = doctorRep.findAll().iterator();
                 while (doctorIterator.hasNext()) {
                     curD = doctorIterator.next();
-                    String pDname = curP.getPATIENTSDOCTOR();
+                    String pDname = curP.getDOCTORNAME();
                     String dName = curD.getDOCTORNAME();
                     if(pDname.equals(dName))
                     {

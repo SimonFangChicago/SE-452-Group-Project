@@ -23,6 +23,18 @@
 
 <!--------------------------------------------- PROFILE PAGE --------------------------------------------->
 
+<!--<form method="POST" action="/AddNewPatient" modelAttribute="patient">
+  <label id="PATIENTNAME" name="PATIENTNAME" path="PATIENTNAME">Name</label><br>
+  <input id="PATIENTNAME" name="PATIENTNAME" path="PATIENTNAME"/><br>
+  <label id="PATIENTDOB" name="PATIENTDOB" path="PATIENTDOB">DOB</label><br>
+  <input id="PATIENTDOB" name="PATIENTDOB" path="PATIENTDOB"/><br>
+  <label id="PATIENTNOTES" name="PATIENTNOTES" path="PATIENTNOTES">PatientNotes</label><br>
+  <input id="PATIENTNOTES" name="PATIENTNOTES" path="PATIENTNOTES"/><br>
+  <label id="PAITENTSDOCTOR" name="PAITENTSDOCTOR" path="PAITENTSDOCTOR">Doctor Name</label><br>
+  <input id="PATIENTSDOCTOR" name="PAITENTSDOCTOR" path="PAITENTSDOCTOR"/><br>
+  <input type="submit" value="submit"/>
+</form>---->
+
 
 <div id="profile" class="tabcontent">
   <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
@@ -71,48 +83,34 @@
     <th>Lab Results</th>
     <th>Patient Notes</th>
   </tr>
-  <tr>
-    <td>John Prosser</td>
-    <td>07/10/1993</td>
-    <td>26</td>
-    <td>Positive</td>
-    <td>Patient has no previous history with illness</td>
-  </tr>
-  <tr>
-    <td>Jeff Osborn</td>
-    <td>03/17/1970</td>
-    <td>40</td>
-    <td>Positive</td>
-    <td>Patient is sick but does not show symptoms</td>
-  </tr>
-  <tr>
-    <td>Joe Jablonski</td>
-    <td>05/13/1990</td>
-    <td>20</td>
-    <td>Negative</td>
-    <td>Patient is healthy but should see ENT specialist</td>
-  </tr>
-  <tr>
-    <td>Fred Johnson</td>
-    <td>10/3/1968</td>
-    <td>42</td>
-    <td>Negative</td>
-    <td>Patient is healthy</td>
-  </tr>
+  <tr th:each="patient : ${Patients}">
+    <td><span th:text="${patient.getPATIENTNAME()}"> Name </span></td>
+    <td><span th:text="${patient.getPATIENTNOTES()}"> Notes </span></td>
+    <td><span th:text="${patient.getPATIENTNOTES()}"> Notes </span></td>
+    <td><span th:text="${patient.getPATIENTNOTES()}"> Notes </span></td>
+    <td><span th:text="${patient.getPATIENTNOTES()}"> Notes </span></td>
+ </tr>
 </table>
 
 <h2>Enter New Patient</h2>
 
-<form action="/action_page.php">
-  <label for="newpatient">Enter New Patient:</label><br>
-  <input type="text" id="newpatient" name="newpatient"><br>
-  <label for="birthday">Birth Date</label><br>
-  <input type="text" id="birthdate" name="birthdate"><br><br>
-  <label for="patientnotes">Patient Notes</label><br>
-  <input type="text" id="patientnotes" name="patientnotes"><br><br>
-  <input type="submit" value="Add Patient">
-</form> 
+<form method="post" modelAttribute="patient" action="AddNewPatient">
 
+  <label id="PATIENTNAME" name="PATIENTNAME" path="PATIENTNAME">Name</label><br>
+  <input id="PATIENTNAME" name="PATIENTNAME" path="PATIENTNAME"/><br>
+  
+  <label id="PATIENTNOTES" name="PATIENTNOTES" path="PATIENTNOTES">PatientNotes</label><br>
+  <input id="PATIENTNOTES" name="PATIENTNOTES" path="PATIENTNOTES"/><br>
+
+  <label id="DOCTORNAME" name="DOCTORNAME" path="DOCTORNAME">Doctor Name</label><br>
+  <input id="DOCTORNAME" name="DOCTORNAME" path="DOCTORNAME"/><br>
+
+  <label id="PATIENTDOB" name="PATIENTDOB" path="PATIENTDOB">DOB</label><br>
+  <input id="PATIENTDOB" name="PATIENTDOB" path="PATIENTDOB"/><br>
+
+  <h3><span id="PatientsDoctor" name="PatientsDoctor" path="PatientsDoctor" th:utext="${doctorName}"></span></h3><br><br>
+  <input type="submit" value="AddNewPatient">
+</form> 
 
 </div>
 
