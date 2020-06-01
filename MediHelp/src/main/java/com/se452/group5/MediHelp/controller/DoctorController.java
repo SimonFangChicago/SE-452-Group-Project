@@ -67,8 +67,9 @@ public class DoctorController {
     
     @RequestMapping(value = "/AddNewPatient", method = RequestMethod.POST)
     public ModelAndView processAddNewPatient(ModelAndView modelAndView,Patient patient,
-            BindingResult bindingResult, HttpServletRequest request) {
+            BindingResult bindingResult, HttpServletRequest request,Principal principal) {
 
+                patient.setDOCTORNAME(principal.getName());
                 patientRepository.save(patient);
 
                 modelAndView.addObject("patientName", patient.getPATIENTNAME());
