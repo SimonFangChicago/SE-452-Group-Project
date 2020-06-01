@@ -111,8 +111,6 @@ public class RegisterController {
                 newUR.setAppRole(role);
                 userRoleService.saveUserRole(newUR);
             }
-            //jdbcTemplate.update("INSERT INTO App_User(user_name, ENCRYTED_PASSWORD,ENABLED) VALUES (?,?,?)","test",
-            //bCryptPasswordEncoder.encode("123"),1);
 				
 			modelAndView.setViewName("login");
 		}
