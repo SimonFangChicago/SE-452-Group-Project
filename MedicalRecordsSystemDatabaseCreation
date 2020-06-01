@@ -121,8 +121,6 @@ INSERT INTO Medications VALUES (4, 'Adderall', 'Dry mouth');
 INSERT INTO Medications VALUES (5, 'Acetaminophen', 'Insomnia');
 INSERT INTO Medications VALUES (6, 'Alprazolam', 'Diarrhea');
 
-Delete from Patient where patientid=1;
-
 INSERT INTO Patient VALUES (6,1, 'Bill Woods', 'Male', '1984-12-31', 3,
 'Patient has made full recovery', 'Lab results are negative', 'Clindamycin', 'David Anderson');
 INSERT INTO Patient VALUES (7,2, 'Nathan Cantleberry', 'Male', '1988-10-02', 1, 
