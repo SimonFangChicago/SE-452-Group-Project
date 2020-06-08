@@ -152,7 +152,7 @@ public class DoctorController {
                     }
                 }
 
-                modelAndView.setViewName("redirect:/userinfo");
+                modelAndView.setViewName("DeleteResult");
 
                 return modelAndView;
     }
