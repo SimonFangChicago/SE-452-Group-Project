@@ -145,7 +145,7 @@ public class DoctorController {
                 Prescription prescription = null;
                 while (pIterator.hasNext()) {
                     prescription = pIterator.next();
-                    if(prescription.getPRESCRIPTIONID().equals(pID))
+                    if(prescription.getPRESCRIPTIONID().toString().equals(pID))
                     {    
                         prescriptionRepository.delete(prescription);
                         break;
