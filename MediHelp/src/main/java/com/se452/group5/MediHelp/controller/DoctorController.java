@@ -101,7 +101,7 @@ public class DoctorController {
     }
 
     @RequestMapping(value = "/PostUpdatePatient", method = RequestMethod.POST)
-    public ModelAndView processUpdatePatient(ModelAndView modelAndView,Patient patient,
+    public String processUpdatePatient(Patient patient,
             BindingResult bindingResult, HttpServletRequest request,Principal principal) {
                 Iterator<Patient> patientIterator = patientRepository.findAll().iterator();
                 Patient pInDB = null;
@@ -110,13 +110,12 @@ public class DoctorController {
                     if(pInDB.getPATIENTNAME().equals(patient.getPATIENTNAME()))
                     {    
                         pInDB.setPATIENTDOB(patient.getPATIENTDOB());
+                        pInDB.setPATIENTNOTES(patient.getPATIENTNOTES());
                         patientRepository.save(pInDB);
                         break;
                     }
                 }
-
-                modelAndView.setViewName("redirect:/userinfo");
-                return modelAndView;
+                return "UpdateResult";
     }
 
 

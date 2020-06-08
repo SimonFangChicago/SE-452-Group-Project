@@ -16,9 +16,9 @@
 
  <form method="post" modelAttribute="patient" action="PostUpdatePatient" style="text-align: center">
 
-    <label id="PATIENTNAME" name="PATIENTNAME" path="PATIENTNAME" th:value="${patient.getPATIENTNAME()}">Name</label><br>
-    <input id="PATIENTNAME" name="PATIENTNAME" path="PATIENTNAME" th:value="${patient.getPATIENTNAME()}"/><br>
-    
+    <label>Patient Name</label>
+    <h5><span id="PATIENTNAME" name="PATIENTNAME" path="PATIENTNAME" th:utext="${patient.getPATIENTNAME()}"></span></h5><br><br>
+
     <label id="PATIENTNOTES" name="PATIENTNOTES" path="PATIENTNOTES" th:value="${patient.getPATIENTNOTES()}">PatientNotes</label><br>
     <input id="PATIENTNOTES" name="PATIENTNOTES" path="PATIENTNOTES" th:value="${patient.getPATIENTNOTES()}"/><br>
   
@@ -26,7 +26,10 @@
     <input id="PATIENTDOB" name="PATIENTDOB" path="PATIENTDOB" th:value="${patient.getPATIENTDOB()}"/><br>
   
     <label>Doctor Name</label>
-    <h3><span id="PatientsDoctor" name="PatientsDoctor" path="PatientsDoctor" th:utext="${patient.getDOCTORNAME()}"></span></h3><br><br>
+    <h5><span id="PatientsDoctor" name="PatientsDoctor" path="PatientsDoctor" th:utext="${patient.getDOCTORNAME()}"></span></h5><br><br>
+
+    <label hidden=true id="PATIENTNAME" name="PATIENTNAME" path="PATIENTNAME" th:value="${patient.getPATIENTNAME()}">Name</label><br>
+    <input hidden=true id="PATIENTNAME" name="PATIENTNAME" path="PATIENTNAME" th:value="${patient.getPATIENTNAME()}"/><br>
 
     <label hidden=true id="DOCTORNAME" name="DOCTORNAME" path="DOCTORNAME" th:value="${patient.getDOCTORNAME()}">Doctor Name</label><br>
     <input hidden=true id="DOCTORNAME" name="DOCTORNAME" path="DOCTORNAME" th:value="${patient.getDOCTORNAME()}"/><br>
