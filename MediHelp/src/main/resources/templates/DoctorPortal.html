@@ -75,11 +75,13 @@
     <th>Name</th>
     <th>Birthdate</th>
     <th>Patient Notes</th>
+    <th>Delete</th>
   </tr>
   <tr th:each="patient : ${Patients}">
     <td><span th:text="${patient.getPATIENTNAME()}"> Name </span></td>
     <td><span th:text="${patient.getPATIENTDOB()}"> Notes </span></td>
     <td><span th:text="${patient.getPATIENTNOTES()}"> Notes </span></td>
+    <th><a th:href="@{'DeletePatient?patientName=' + ${patient.getPATIENTNAME()}}">Delete</a></th>
  </tr>
 </table>
 

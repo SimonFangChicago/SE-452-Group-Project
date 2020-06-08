@@ -1,6 +1,7 @@
 package com.se452.group5.MediHelp.controller;
 
 import java.security.Principal;
+import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -77,6 +78,45 @@ public class DoctorController {
 
                 return modelAndView;
 
+    }
+
+    @RequestMapping(value = "/UpdatePatient", method = RequestMethod.POST)
+    public ModelAndView processUpdatePatient(ModelAndView modelAndView,Patient patient,
+            BindingResult bindingResult, HttpServletRequest request,Principal principal) {
+                Iterator<Patient> patientIterator = patientRepository.findAll().iterator();
+                Patient pInDB = null;
+                while (patientIterator.hasNext()) {
+                    pInDB = patientIterator.next();
+                    if(pInDB.getPATIENTNAME().equals(patient.getPATIENTNAME()))
+                    {    
+                        pInDB.setPATIENTDOB(patient.getPATIENTDOB());
+                        patientRepository.save(pInDB);
+                        break;
+                    }
+                }
+
+                modelAndView.setViewName("DoctorPortal");
+                return modelAndView;
+    }
+
+
+    @RequestMapping(value = "/DeletePatient", method = RequestMethod.GET)
+    public ModelAndView processDeletePatient(ModelAndView modelAndView, @RequestParam("patientName") String patientName,Principal principal) {
+
+                Iterator<Patient> patientIterator = patientRepository.findAll().iterator();
+                Patient patient = null;
+                while (patientIterator.hasNext()) {
+                    patient = patientIterator.next();
+                    if(patient.getPATIENTNAME().equals(patientName))
+                    {    
+                        patientRepository.delete(patient);
+                        break;
+                    }
+                }
+
+                modelAndView.setViewName("redirect:/userinfo");
+
+                return modelAndView;
     }
 
     @RequestMapping(value = "/AddPrescription", method = RequestMethod.POST)
