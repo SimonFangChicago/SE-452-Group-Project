@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/styling.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+ <!-- Include _menu.html -->
+ <th:block th:include="/_menu"></th:block>
+
+ <h1 style="text-align: center" >Update Prescription<br></h1>
+
+ <div class="center" style="width:500px;height:500px;border:1px solid #000;">
+
+ <form method="post" modelAttribute="patient" action="PostUpdatePrescription" style="text-align: center">
+
+    <label>Patient Name</label>
+    <h5><span id="PATIENTNAME" name="PATIENTNAME" path="PATIENTNAME" th:utext="${prescription.getPATIENTNAME()}"></span></h5><br><br>
+  
+    <label>Doctor Name</label>
+    <h5><span id="PatientsDoctor" name="PatientsDoctor" path="PatientsDoctor" th:utext="${prescription.getDOCTORNAME()}"></span></h5><br><br>
+
+    <label id="MEDICATION" name="MEDICATION" path="MEDICATION" th:value="${prescription.getMEDICATION()}">Medication</label><br>
+    <input id="MEDICATION" name="MEDICATION" path="MEDICATION" th:value="${prescription.getMEDICATION()}"/><br>
+
+    <label hidden=true id="PRESCRIPTIONID" name="PRESCRIPTIONID" path="PRESCRIPTIONID" th:value="${prescription.getPRESCRIPTIONID()}">Name</label><br>
+    <input hidden=true id="PRESCRIPTIONID" name="PRESCRIPTIONID" path="PRESCRIPTIONID" th:value="${prescription.getPRESCRIPTIONID()}"/><br>
+
+    <label hidden=true id="PATIENTNAME" name="PATIENTNAME" path="PATIENTNAME" th:value="${prescription.getPATIENTNAME()}">Name</label><br>
+    <input hidden=true id="PATIENTNAME" name="PATIENTNAME" path="PATIENTNAME" th:value="${prescription.getPATIENTNAME()}"/><br>
+
+    <label hidden=true id="DOCTORNAME" name="DOCTORNAME" path="DOCTORNAME" th:value="${prescription.getDOCTORNAME()}">Doctor Name</label><br>
+    <input hidden=true id="DOCTORNAME" name="DOCTORNAME" path="DOCTORNAME" th:value="${prescription.getDOCTORNAME()}"/><br>
+    <input type="submit" value="PostUpdatePrescription">
+  </form> 
+  
+  </div>
+
+
+
+<script>
+
+</script>
+
+</html>

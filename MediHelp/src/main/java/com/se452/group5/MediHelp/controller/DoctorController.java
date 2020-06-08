@@ -138,6 +138,25 @@ public class DoctorController {
                 return modelAndView;
     }
 
+    @RequestMapping(value = "/DeletePrescription", method = RequestMethod.GET)
+    public ModelAndView processDeletePrescription(ModelAndView modelAndView, @RequestParam("pID") String pID,Principal principal) {
+
+                Iterator<Prescription> pIterator = prescriptionRepository.findAll().iterator();
+                Prescription prescription = null;
+                while (pIterator.hasNext()) {
+                    prescription = pIterator.next();
+                    if(prescription.getPRESCRIPTIONID().equals(pID))
+                    {    
+                        prescriptionRepository.delete(prescription);
+                        break;
+                    }
+                }
+
+                modelAndView.setViewName("redirect:/userinfo");
+
+                return modelAndView;
+    }
+
     @RequestMapping(value = "/AddPrescription", method = RequestMethod.POST)
     public ModelAndView processAddPrescription(ModelAndView modelAndView,Prescription prescription,
             BindingResult bindingResult, HttpServletRequest request,Principal principal) {
@@ -153,6 +172,43 @@ public class DoctorController {
 
                 return modelAndView;
 
+    }
+
+    @RequestMapping(value = "/UpdatePrescription", method = RequestMethod.GET)
+    public ModelAndView EditPrescription(ModelAndView modelAndView,@RequestParam("pID") String pID,Principal principal) {
+                Iterator<Prescription> pIterator = prescriptionRepository.findAll().iterator();
+                Prescription prescription = null;
+                Prescription model = null;
+                while (pIterator.hasNext()) {
+                    prescription = pIterator.next();
+                    String pIDStr = prescription.getPRESCRIPTIONID().toString();
+                    if(pIDStr.equals(pID))
+                    {    
+                        model = prescription;
+                        break;
+                    }
+                }
+
+                modelAndView.setViewName("/EditPrescription");
+                modelAndView.addObject("prescription", model);
+                return modelAndView;
+    }
+
+    @RequestMapping(value = "/PostUpdatePrescription", method = RequestMethod.POST)
+    public String processUpdatePrescription(Prescription prescription,
+            BindingResult bindingResult, HttpServletRequest request,Principal principal) {
+                Iterator<Prescription> pIterator = prescriptionRepository.findAll().iterator();
+                Prescription p = null;
+                while (pIterator.hasNext()) {
+                    p = pIterator.next();
+                    if(p.getPRESCRIPTIONID().toString().equals(prescription.getPRESCRIPTIONID().toString()))
+                    {    
+                        p.setMEDICATION(prescription.getMEDICATION());
+                        prescriptionRepository.save(p);
+                        break;
+                    }
+                }
+                return "UpdateResult";
     }
     
 }

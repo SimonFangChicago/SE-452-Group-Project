@@ -124,10 +124,14 @@
   <tr>
     <th>PatientName</th>
     <th>Medication</th>
+    <th>Delete</th>
+    <th>Edit</th>
   </tr>
   <tr th:each="prescription: ${prescriptions}">
     <td><span th:text="${prescription.getPATIENTNAME()}"> PatientName </span></td>
     <td><span th:text="${prescription.getMEDICATION()}"> Medication </span></td>
+    <th><a th:href="@{'DeletePrescription?pID=' + ${prescription.getPRESCRIPTIONID()}}">Delete</a></th>
+    <th><a th:href="@{'UpdatePrescription?pID=' + ${prescription.getPRESCRIPTIONID()}}">Update</a></th>
  </tr>
 </table>
 
